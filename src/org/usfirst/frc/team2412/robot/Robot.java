@@ -7,55 +7,54 @@
 
 package org.usfirst.frc.team2412.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team2412.robot.commands.PrintCommand;
+import org.usfirst.frc.team2412.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
+ * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the build.properties file in the
  * project.
  */
 public class Robot extends TimedRobot {
-	private static final String kDefaultAuto = "Default";
-	private static final String kCustomAuto = "My Auto";
-	private String m_autoSelected;
-	private SendableChooser<String> m_chooser = new SendableChooser<>();
-	
-	/** Motors and driving. */
-	private DifferentialDrive robotDrive;
-	private WPI_TalonSRX talons[] = new WPI_TalonSRX[4];
-	private SpeedControllerGroup leftSide;
-	private SpeedControllerGroup rightSide;
-	
-	private double startTime = 0; //When autonomous first starts.
-	
+	public static final ExampleSubsystem kExampleSubsystem
+			= new ExampleSubsystem();
+	public static OI m_oi;
+
+	Command m_autonomousCommand;
+	SendableChooser<Command> m_chooser = new SendableChooser<>();
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		m_chooser.addDefault("Default Auto", kDefaultAuto);
-		m_chooser.addObject("My Auto", kCustomAuto);
-		SmartDashboard.putData("Auto choices", m_chooser);
-		
-		//Initialize motors and driving.
-		talons[0] = new WPI_TalonSRX(9);
-		talons[1] = new WPI_TalonSRX(5);
-		talons[2] = new WPI_TalonSRX(1);
-		talons[3] = new WPI_TalonSRX(10);
-		
-		leftSide = new SpeedControllerGroup(talons[0], talons[2]);
-		rightSide = new SpeedControllerGroup(talons[1], talons[3]);
-		
-		robotDrive = new DifferentialDrive(leftSide, rightSide);
+		m_oi = new OI();
+		m_chooser.addDefault("Default Auto", new PrintCommand());
+		// chooser.addObject("My Auto", new MyAutoCommand());
+		SmartDashboard.putData("Auto mode", m_chooser);
+	}
+
+	/**
+	 * This function is called once each time the robot enters Disabled mode.
+	 * You can use it to reset any subsystem information you want to clear when
+	 * the robot is disabled.
+	 */
+	@Override
+	public void disabledInit() {
+
+	}
+
+	@Override
+	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
 	}
 
 	/**
@@ -63,20 +62,27 @@ public class Robot extends TimedRobot {
 	 * between different autonomous modes using the dashboard. The sendable
 	 * chooser code works with the Java SmartDashboard. If you prefer the
 	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-	 * getString line to get the auto name from the text box below the Gyro
+	 * getString code to get the auto name from the text box below the Gyro
 	 *
-	 * <p>You can add additional auto modes by adding additional comparisons to
-	 * the switch structure below with additional strings. If using the
-	 * SendableChooser make sure to add them to the chooser code above as well.
+	 * <p>You can add additional auto modes by adding additional commands to the
+	 * chooser code above (like the commented example) or additional comparisons
+	 * to the switch structure below with additional strings & commands.
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autoSelected = m_chooser.getSelected();
-		// m_autoSelected = SmartDashboard.getString("Auto Selector",
-		// 		kDefaultAuto);
-		System.out.println("Auto selected: " + m_autoSelected);
-		
-		startTime = getTimeInSeconds();
+//		m_autonomousCommand = m_chooser.getSelected();
+		m_autonomousCommand = new PrintCommand();
+		/*
+		 * String autoSelected = SmartDashboard.getString("Auto Selector",
+		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
+		 * = new MyAutoCommand(); break; case "Default Auto": default:
+		 * autonomousCommand = new ExampleCommand(); break; }
+		 */
+
+		// schedule the autonomous command (example)
+		if (m_autonomousCommand != null) {
+			m_autonomousCommand.start();
+		}
 	}
 
 	/**
@@ -84,10 +90,17 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		if(getTimeInSeconds() - startTime > 1) {
-			robotDrive.arcadeDrive(0, 0);
-		} else {
-			robotDrive.arcadeDrive(0.5, 0);
+		Scheduler.getInstance().run();
+	}
+
+	@Override
+	public void teleopInit() {
+		// This makes sure that the autonomous stops running when
+		// teleop starts running. If you want the autonomous to
+		// continue until interrupted by another command, remove
+		// this line or comment it out.
+		if (m_autonomousCommand != null) {
+			m_autonomousCommand.cancel();
 		}
 	}
 
@@ -96,6 +109,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
 	}
 
 	/**
@@ -103,9 +117,5 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-	}
-	
-	private double getTimeInSeconds() {
-		return System.nanoTime() / 1E9;
 	}
 }
