@@ -7,7 +7,11 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -23,7 +27,15 @@ public class Robot extends TimedRobot {
 	private static final String kCustomAuto = "My Auto";
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
-
+	
+	/** Motors and driving. */
+	private DifferentialDrive robotDrive;
+	private WPI_TalonSRX talons[] = new WPI_TalonSRX[4];
+	private SpeedControllerGroup leftSide;
+	private SpeedControllerGroup rightSide;
+	
+	private double startTime = 0; //When autonomous first starts.
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -33,6 +45,17 @@ public class Robot extends TimedRobot {
 		m_chooser.addDefault("Default Auto", kDefaultAuto);
 		m_chooser.addObject("My Auto", kCustomAuto);
 		SmartDashboard.putData("Auto choices", m_chooser);
+		
+		//Initialize motors and driving.
+		talons[0] = new WPI_TalonSRX(9);
+		talons[1] = new WPI_TalonSRX(5);
+		talons[2] = new WPI_TalonSRX(1);
+		talons[3] = new WPI_TalonSRX(10);
+		
+		leftSide = new SpeedControllerGroup(talons[0], talons[2]);
+		rightSide = new SpeedControllerGroup(talons[1], talons[3]);
+		
+		robotDrive = new DifferentialDrive(leftSide, rightSide);
 	}
 
 	/**
@@ -52,6 +75,8 @@ public class Robot extends TimedRobot {
 		// m_autoSelected = SmartDashboard.getString("Auto Selector",
 		// 		kDefaultAuto);
 		System.out.println("Auto selected: " + m_autoSelected);
+		
+		startTime = getTimeInSeconds();
 	}
 
 	/**
@@ -59,14 +84,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		switch (m_autoSelected) {
-			case kCustomAuto:
-				// Put custom auto code here
-				break;
-			case kDefaultAuto:
-			default:
-				// Put default auto code here
-				break;
+		if(getTimeInSeconds() - startTime > 1) {
+			robotDrive.arcadeDrive(0, 0);
+		} else {
+			robotDrive.arcadeDrive(0.5, 0);
 		}
 	}
 
@@ -82,5 +103,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+	}
+	
+	private double getTimeInSeconds() {
+		return System.nanoTime() / 1E9;
 	}
 }
