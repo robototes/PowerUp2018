@@ -7,16 +7,13 @@
 
 package org.usfirst.frc.team2412.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team2412.robot.Robot;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class PrintCommand extends Command {
+public class PrintCommand extends CommandBase {
 	public PrintCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.kExampleSubsystem);
 	}
 
 	// Called just before this Command runs the first time

@@ -7,13 +7,17 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.PrintCommand;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team2412.robot.commands.PrintCommand;
-import org.usfirst.frc.team2412.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,13 +27,13 @@ import org.usfirst.frc.team2412.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+	
+	NetworkTableInstance tableInstance = NetworkTableInstance.getDefault();
+	NetworkTable table = tableInstance.getTable("PyDashboard");
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -83,6 +87,10 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
+		
+		String selected = table.getEntry("startingPosition").getString("unknown");
+		System.out.println(selected);
+		
 	}
 
 	/**
@@ -102,6 +110,8 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		RobotMap.talons[1].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
 	}
 
 	/**
@@ -110,6 +120,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+//		System.out.println("Position: " + RobotMap.talons[1].getSelectedSensorPosition(0));
 	}
 
 	/**
