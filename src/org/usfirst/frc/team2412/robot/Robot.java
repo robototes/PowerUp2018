@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.DriveXFeetCommand;
 import org.usfirst.frc.team2412.robot.commands.PrintCommand;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -75,7 +76,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 //		m_autonomousCommand = m_chooser.getSelected();
-		m_autonomousCommand = new PrintCommand();
+		m_autonomousCommand = new DriveXFeetCommand();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
