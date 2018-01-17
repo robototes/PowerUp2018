@@ -10,6 +10,7 @@ package org.usfirst.frc.team2412.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -65,4 +66,7 @@ public class RobotMap {
 	
 	/** Gyroscope */
 	public static GyroBase gyro = new ADXRS450_Gyro();
+	
+	/** Limit switch */
+	public static DigitalInput limitSwitch = new DigitalInput(0);
 }
