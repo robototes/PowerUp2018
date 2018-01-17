@@ -9,7 +9,7 @@ public class DriveLimitSwitchCommand extends CommandBase {
 	}
 	
 	protected void execute() {
-		System.out.println("Driving...");
+		driveBase.drive(0.5, 0, false);
 	}
 	
 	protected boolean isFinished() {
