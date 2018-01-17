@@ -7,5 +7,6 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new DriveXFeetCommand());
 		addSequential(new WaitCommand());
 		addSequential(new TurnCommand());
+		addSequential(new DriveLimitSwitchCommand());
 	}
 }
