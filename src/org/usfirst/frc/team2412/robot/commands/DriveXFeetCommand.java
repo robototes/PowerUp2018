@@ -17,6 +17,8 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
  */
 public class DriveXFeetCommand extends CommandBase {
 	private boolean firstRun = true;
+	private double startingValueLeft = 0;
+	private double startingValueRight = 0;
 	
 	public DriveXFeetCommand() {
 		// Use requires() here to declare subsystem dependencies
@@ -42,21 +44,23 @@ public class DriveXFeetCommand extends CommandBase {
 		System.out.println("First run: " + firstRun);
 		if(firstRun) {
 			System.out.println(firstRun);
-			RobotMap.talons[0].setSelectedSensorPosition(0, 0, 0);
-			RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0);
+			startingValueLeft = RobotMap.talons[0].getSelectedSensorPosition(0);
+			startingValueRight = RobotMap.talons[1].getSelectedSensorPosition(0);
+//			RobotMap.talons[0].setSelectedSensorPosition(0, 0, 0);
+//			RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0);
 			firstRun = false;
 			System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0)));
 			System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0)));
 		}
-		System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0)));
-		System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0)));
+		System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft));
+		System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight));
 		driveBase.drive(0.5, 0, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0)) > 5000 && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0)) > 5000;
+		return Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > 5000 && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > 5000;
 //		return -RobotMap.talons[0].getSelectedSensorPosition(0) > 1000 && RobotMap.talons[1].getSelectedSensorPosition(0) > 1000;
 	}
 
