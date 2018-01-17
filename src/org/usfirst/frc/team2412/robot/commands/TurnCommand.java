@@ -8,7 +8,7 @@ public class TurnCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		driveBase.drive(0, 0.5, false);
+		driveBase.drive(0, 0.4, false);
 	}
 	
 	@Override
