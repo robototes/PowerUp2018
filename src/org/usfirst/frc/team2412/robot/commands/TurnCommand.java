@@ -8,6 +8,6 @@ public class TurnCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		System.out.println("Hello, world!");
+		System.out.println(driveBase.getAngle());
 	}
 }
