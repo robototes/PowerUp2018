@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
 		addSequential(new DriveXFeetCommand());
-		addSequential(new WaitCommand());
+		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand());
 		addSequential(new DriveLimitSwitchCommand());
 	}

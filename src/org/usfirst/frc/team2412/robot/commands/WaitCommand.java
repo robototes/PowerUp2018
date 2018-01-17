@@ -4,12 +4,14 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class WaitCommand extends CommandBase {
 
-	public WaitCommand() {
-		
+	double secondsToWait = 1;
+	
+	public WaitCommand(double _secondsToWait) {
+		this.secondsToWait = _secondsToWait;
 	}
 	
 	protected void execute() {
-		Timer.delay(1);
+		Timer.delay(secondsToWait);
 	}
 	
 	protected boolean isFinished() {
