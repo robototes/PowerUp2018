@@ -8,6 +8,11 @@ public class TurnCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		System.out.println(driveBase.getAngle());
+		driveBase.drive(0, 0.5, false);
+	}
+	
+	@Override
+	protected boolean isFinished() {
+		return driveBase.getAngle() > 90;
 	}
 }
