@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.PlateColorChecker;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -19,6 +20,8 @@ public class DriveXFeetCommand extends CommandBase {
 	private boolean firstRun = true;
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
+	
+	private double distanceToDrive = 5000;
 	
 	public DriveXFeetCommand() {
 		// Use requires() here to declare subsystem dependencies
@@ -41,6 +44,9 @@ public class DriveXFeetCommand extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		if(PlateColorChecker.getStartingPosition().equals("Center")) {
+			return;
+		}
 		System.out.println("First run: " + firstRun);
 		if(firstRun) {
 			System.out.println(firstRun);
@@ -51,6 +57,14 @@ public class DriveXFeetCommand extends CommandBase {
 			firstRun = false;
 			System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0)));
 			System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0)));
+			
+			if(!PlateColorChecker.isSwitchCorrectColor() && PlateColorChecker.isScaleCorrectColor()) {
+				//If the switch is the wrong color but the scale is the right color, go for the scale.
+				distanceToDrive = 10000; //TODO change this to 324 inches.
+			} else {
+				//Otherwise, go for the switch.
+				distanceToDrive = 5000; //TODO change this to 168 inches.
+			}
 		}
 		System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight));
@@ -60,8 +74,7 @@ public class DriveXFeetCommand extends CommandBase {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > 5000 && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > 5000;
-//		return -RobotMap.talons[0].getSelectedSensorPosition(0) > 1000 && RobotMap.talons[1].getSelectedSensorPosition(0) > 1000;
+		return Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
 	}
 
 	// Called once after isFinished returns true
