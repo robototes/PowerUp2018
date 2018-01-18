@@ -30,8 +30,7 @@ public class PlateColorChecker {
 	}
 	
 	public static boolean isSwitchCorrectColor() {
-		String selected = table.getEntry("startingPosition").getString("unknown");
-		if(selected.equals("Left")) {
+		if(getStartingPosition().equals("Left")) {
 			return isLeftSwitchCorrectColor();
 		} else {
 			return isRightSwitchCorrectColor();
@@ -39,11 +38,14 @@ public class PlateColorChecker {
 	}
 	
 	public static boolean isScaleCorrectColor() {
-		String selected = table.getEntry("startingPosition").getString("unknown");
-		if(selected.equals("Left")) {
+		if(getStartingPosition().equals("Left")) {
 			return isLeftScaleCorrectColor();
 		} else {
 			return isRightScaleCorrectColor();
 		}
+	}
+	
+	public static String getStartingPosition() {
+		return table.getEntry("startingPosition").getString("unknown");
 	}
 }
