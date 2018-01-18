@@ -74,7 +74,7 @@ public class DriveXFeetCommand extends CommandBase {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
+		return PlateColorChecker.getStartingPosition().equals("Center") && Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
 	}
 
 	// Called once after isFinished returns true
