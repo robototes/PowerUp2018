@@ -4,7 +4,7 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class TurnCommand extends CommandBase {
 	private boolean firstRun = true;
-	private final double Kp = 0.45;
+	private final double Kp = 0.43;
 	
 	public TurnCommand() {
 		requires(driveBase);
