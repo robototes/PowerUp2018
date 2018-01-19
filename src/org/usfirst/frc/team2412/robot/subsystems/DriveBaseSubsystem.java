@@ -34,4 +34,8 @@ public class DriveBaseSubsystem extends Subsystem {
 	public double getAngle() {
 		return gyro.getAngle();
 	}
+	
+	public void resetAngle() {
+		gyro.reset();
+	}
 }
