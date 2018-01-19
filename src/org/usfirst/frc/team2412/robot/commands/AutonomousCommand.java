@@ -8,5 +8,6 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand());
 		addSequential(new DriveLimitSwitchCommand());
+		addSequential(new DropCubeCommand());
 	}
 }
