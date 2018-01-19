@@ -8,6 +8,7 @@
 package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.AutonomousCommand;
+import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.PrintCommand;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -100,6 +101,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		System.out.println("Gyro angle: " + CommandBase.driveBase.getAngle()); //Print out the gyro angle no matter what for testing.
 	}
 
 	@Override
@@ -113,6 +115,7 @@ public class Robot extends TimedRobot {
 		}
 		RobotMap.talons[1].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
+		CommandBase.driveBase.resetAngle();
 	}
 
 	/**

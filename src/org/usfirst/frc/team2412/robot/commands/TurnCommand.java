@@ -4,6 +4,7 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class TurnCommand extends CommandBase {
 	private boolean firstRun = true;
+	private final double Kp = 0.45;
 	
 	public TurnCommand() {
 		requires(driveBase);
@@ -18,12 +19,13 @@ public class TurnCommand extends CommandBase {
 			driveBase.resetAngle();
 			firstRun = false;
 		}
-		driveBase.drive(0, 0.4, false);
+		double angle = 90 - driveBase.getAngle();
+		driveBase.drive(0, angle*Kp/90, false);
 	}
 	
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || driveBase.getAngle() > 90;
+		return exitEarly() || Math.abs(90 - driveBase.getAngle()) < 1;
 	}
 	
 	private boolean exitEarly() {
