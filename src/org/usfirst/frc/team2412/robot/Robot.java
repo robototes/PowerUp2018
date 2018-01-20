@@ -9,7 +9,6 @@ package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
-import org.usfirst.frc.team2412.robot.commands.PrintCommand;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
@@ -18,8 +17,6 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,7 +29,6 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
 	NetworkTableInstance tableInstance = NetworkTableInstance.getDefault();
 	NetworkTable table = tableInstance.getTable("PyDashboard");
@@ -43,9 +39,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
-		m_chooser.addDefault("Default Auto", new PrintCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", m_chooser);
 	}
 
 	/**
