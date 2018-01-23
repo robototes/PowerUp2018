@@ -9,9 +9,9 @@ public class EncoderCommand extends CommandBase {
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
 	
-	private double distanceToDriveLeft;
-	private double distanceToDriveCenter;
-	private double distanceToDriveRight;
+	protected double distanceToDriveLeft;
+	protected double distanceToDriveCenter;
+	protected double distanceToDriveRight;
 	
 	private double distanceToDrive = 0;
 	
