@@ -22,11 +22,6 @@ public class DropCubeCommand extends CommandBase {
 	}
 	
 	private boolean exitEarly() {
-		if(PlateColorChecker.getStartingPosition().equals("Center")) {
-			return !PlateColorChecker.isSwitchCorrectColor();
-		} else {
-			return !PlateColorChecker.isScaleCorrectColor() 
-				&& !PlateColorChecker.isSwitchCorrectColor();
-		}
+		return !PlateColorChecker.isSwitchCorrectColor();
 	}
 }

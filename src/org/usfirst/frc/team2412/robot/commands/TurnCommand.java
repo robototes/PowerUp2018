@@ -36,7 +36,7 @@ public class TurnCommand extends CommandBase {
 	}
 	
 	private boolean exitEarly() {
-		return PlateColorChecker.getStartingPosition().equals("Center") || (!PlateColorChecker.isScaleCorrectColor() && !PlateColorChecker.isSwitchCorrectColor());
+		return PlateColorChecker.getStartingPosition().equals("Center") || !PlateColorChecker.isSwitchCorrectColor();
 	}
 	
 	protected void end() {
