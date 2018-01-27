@@ -101,7 +101,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		System.out.println("Gyro angle: " + CommandBase.driveBase.getAngle()); //Print out the gyro angle no matter what for testing.
+//		System.out.println("Gyro angle: " + CommandBase.driveBase.getAngle()); //Print out the gyro angle no matter what for testing.
 	}
 
 	@Override

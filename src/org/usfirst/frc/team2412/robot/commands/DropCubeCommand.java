@@ -22,6 +22,7 @@ public class DropCubeCommand extends CommandBase {
 	}
 	
 	private boolean exitEarly() {
+		if(PlateColorChecker.getAutonomousMode().equals("Drive forward")) return true;
 		return !PlateColorChecker.isSwitchCorrectColor();
 	}
 }
