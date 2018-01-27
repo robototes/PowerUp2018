@@ -31,6 +31,8 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	public static int intakeLeft = 4;
+	public static int intakeRight = 5;
 	/** WPI_TalonSRX IDs */
 	public static int[] motorIDs = new int[] {
 		//    FRONT   //
@@ -54,8 +56,11 @@ public class RobotMap {
 		new WPI_TalonSRX(motorIDs[0]),
 		new WPI_TalonSRX(motorIDs[1]),
 		new WPI_TalonSRX(motorIDs[2]),
-		new WPI_TalonSRX(motorIDs[3])
+		new WPI_TalonSRX(motorIDs[3]),
 	};
+	
+	public static WPI_TalonSRX left = new WPI_TalonSRX(intakeLeft);
+	public static WPI_TalonSRX right = new WPI_TalonSRX(intakeRight);
 	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2]);
