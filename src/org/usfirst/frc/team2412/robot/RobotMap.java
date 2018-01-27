@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -74,4 +75,21 @@ public class RobotMap {
 	
 	/** Limit switch */
 	public static DigitalInput limitSwitch = new DigitalInput(0);
+	
+	//Coding for cylinders.
+	public static int topRight = 1;
+	public static int topRightReverse = 2;
+	public static DoubleSolenoid topRightC = new DoubleSolenoid(topRight, topRightReverse);
+	
+	public static int topLeft = 3;
+	public static int topLeftReverse = 4;
+	public static DoubleSolenoid topLeftC = new DoubleSolenoid(topRight, topRightReverse);
+	
+	public static int bottomRight = 5;
+	public static int bottomRightReverse = 6;
+	public static DoubleSolenoid bottomRightC = new DoubleSolenoid(bottomRight, bottomRightReverse);
+	
+	public static int bottomLeft = 7;
+	public static int bottomLeftReverse = 8;
+	public static DoubleSolenoid bottomLeftC = new DoubleSolenoid(bottomLeft, bottomLeftReverse);
 }
