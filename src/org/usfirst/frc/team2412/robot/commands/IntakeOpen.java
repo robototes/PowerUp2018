@@ -1,5 +1,16 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class IntakeOpen {
+import org.usfirst.frc.team2412.robot.subsystems.IntakeSubsystem;
 
+public class IntakeOpen extends CommandBase 
+{
+	public IntakeOpen()
+	{
+		requires(intake);
+	}
+	
+	public void execute()
+	{
+		intake.intakeOpen();
+	}
 }
