@@ -7,13 +7,38 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.IntakeClose;
+import org.usfirst.frc.team2412.robot.commands.IntakeDown;
+import org.usfirst.frc.team2412.robot.commands.IntakeOpen;
+import org.usfirst.frc.team2412.robot.commands.IntakeUp;
+import org.usfirst.frc.team2412.robot.commands.intakeIn;
+import org.usfirst.frc.team2412.robot.commands.intakeOut;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	public OI()
+	{
+		buttonUp.whenPressed(new IntakeUp());
+		buttonDown.whenPressed(new IntakeDown());
+		buttonIn.whenPressed(new intakeIn());
+		buttonOut.whenPressed(new intakeOut());
+		buttonOpen.whenPressed(new IntakeOpen());
+		buttonClose.whenPressed(new IntakeClose());
+	}
+	
+	public Button buttonUp = new JoystickButton(codriver, 1);
+	public Button buttonDown = new JoystickButton(codriver, 2);
+	public Button buttonIn = new JoystickButton(codriver, 3);
+	public Button buttonOut = new JoystickButton(codriver, 4);
+	public Button buttonOpen = new JoystickButton(codriver, 5);
+	public Button buttonClose = new JoystickButton(codriver, 6);
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
