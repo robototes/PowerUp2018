@@ -48,4 +48,8 @@ public class PlateColorChecker {
 	public static String getStartingPosition() {
 		return table.getEntry("startingPosition").getString("unknown");
 	}
+	
+	public static String getAutonomousMode() {
+		return table.getEntry("automode").getString("Autodetect");
+	}
 }
