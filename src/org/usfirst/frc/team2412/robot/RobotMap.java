@@ -92,4 +92,5 @@ public class RobotMap {
 	public static int bottomLeft = 7;
 	public static int bottomLeftReverse = 8;
 	public static DoubleSolenoid bottomLeftC = new DoubleSolenoid(bottomLeft, bottomLeftReverse);
+	
 }
