@@ -49,6 +49,9 @@ public class RobotMap {
 		// 5 front-right
 	};
 	
+	public static int [] climbermotorIDs = new int[] {
+	7,6	
+	};
 	/** WPI_TalonSRX instances */
 	public static WPI_TalonSRX[] talons = new WPI_TalonSRX[]{
 		new WPI_TalonSRX(motorIDs[0]),
@@ -56,7 +59,10 @@ public class RobotMap {
 		new WPI_TalonSRX(motorIDs[2]),
 		new WPI_TalonSRX(motorIDs[3])
 	};
-	
+	public static WPI_TalonSRX[] climberstalons = new WPI_TalonSRX[] {
+			new WPI_TalonSRX(climbermotorIDs[0]),
+			new WPI_TalonSRX(climbermotorIDs[1])
+	};
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2]);
 	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(talons[1], talons[3]);
