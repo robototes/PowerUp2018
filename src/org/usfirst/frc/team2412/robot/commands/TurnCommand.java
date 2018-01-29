@@ -36,7 +36,7 @@ public class TurnCommand extends CommandBase {
 	}
 	
 	private boolean exitEarly() {
-		if(PlateColorChecker.getAutonomousMode().equals("Drive forward")) return true;
+		if(PlateColorChecker.useDefault()) return true;
 		return PlateColorChecker.getStartingPosition().equals("Center") || !PlateColorChecker.isSwitchCorrectColor();
 	}
 	

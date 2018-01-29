@@ -49,7 +49,9 @@ public class PlateColorChecker {
 		return table.getEntry("startingPosition").getString("unknown");
 	}
 	
-	public static String getAutonomousMode() {
-		return table.getEntry("automode").getString("Autodetect");
+	public static boolean useDefault() {
+		String startingPosition = getStartingPosition();
+		System.out.println("Starting position: " + startingPosition);
+		return !startingPosition.equals("Left") && !startingPosition.equals("Center") && !startingPosition.equals("Right"); 
 	}
 }

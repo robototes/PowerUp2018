@@ -113,6 +113,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		table.getEntry("startingPosition").setString("unknown");
 		RobotMap.talons[1].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
 		CommandBase.driveBase.resetAngle();
