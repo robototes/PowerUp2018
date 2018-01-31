@@ -8,6 +8,11 @@ public class DriveStage3Command extends EncoderCommand {
 			double rightDistance) {
 		super(leftDistance, centerDistance, rightDistance);
 	}
+	
+	public DriveStage3Command(double leftDistance, double centerDistance,
+			double rightDistance, double angle) {
+		super(leftDistance, centerDistance, rightDistance, angle);
+	}
 
 	protected boolean exitEarly() {
 		if(PlateColorChecker.useDefault()) return true;

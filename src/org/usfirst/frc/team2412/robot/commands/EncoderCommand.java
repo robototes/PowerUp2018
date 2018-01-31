@@ -15,12 +15,21 @@ public class EncoderCommand extends CommandBase {
 	
 	private double distanceToDrive = 0;
 	
+	private final double Kp = 0.05;
+	
+	private double angleToTurn = 0;
+	
 	public EncoderCommand(double leftDistance, double centerDistance, double rightDistance) {
 		distanceToDriveLeft = leftDistance;
 		distanceToDriveCenter = centerDistance;
 		distanceToDriveRight = rightDistance;
 		// Use requires() here to declare subsystem dependencies
 		requires(driveBase);
+	}
+	
+	public EncoderCommand(double leftDistance, double centerDistance, double rightDistance, double angle) {
+		this(leftDistance, centerDistance, rightDistance);
+		angleToTurn = angle;
 	}
 
 	// Called just before this Command runs the first time
@@ -49,7 +58,7 @@ public class EncoderCommand extends CommandBase {
 		}
 		System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight));
-		driveBase.drive(0.5, 0, false);
+		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
