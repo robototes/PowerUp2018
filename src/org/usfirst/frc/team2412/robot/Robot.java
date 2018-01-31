@@ -93,6 +93,8 @@ public class Robot extends TimedRobot {
 		String selected = table.getEntry("startingPosition").getString("unknown");
 		System.out.println(selected);
 		
+		CommandBase.driveBase.resetAngle();
+		
 	}
 
 	/**

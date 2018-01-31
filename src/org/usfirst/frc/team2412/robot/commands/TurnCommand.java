@@ -17,7 +17,6 @@ public class TurnCommand extends CommandBase {
 			return;
 		}
 		if(firstRun) {
-			driveBase.resetAngle();
 			if(PlateColorChecker.getStartingPosition().equals("Left")) {
 				angleToTurn = Math.abs(angleToTurn);
 			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
