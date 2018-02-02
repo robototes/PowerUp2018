@@ -15,7 +15,7 @@ public class EncoderCommand extends CommandBase {
 	
 	private double distanceToDrive = 0;
 	
-	private final double Kp = 0.05;
+	private final double Kp = 0.15;
 	
 	private double angleToTurn = 0;
 	
