@@ -24,6 +24,7 @@ public class TurnCommand extends CommandBase {
 			firstRun = false;
 			driveBase.setSetpoint(angleToTurn);
 			driveBase.getPIDController().enable();
+			driveBase.setAbsoluteTolerance(5); //Tolerate 5 degrees either way.
 		}
 		System.out.println("Turning...");
 		double calculatedValue = driveBase.getPIDController().get();
@@ -34,7 +35,8 @@ public class TurnCommand extends CommandBase {
 	
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(getError()) < 1;
+//		return exitEarly() || Math.abs(getError()) < 1;
+		return driveBase.onTarget();
 	}
 	
 	private boolean exitEarly() {
