@@ -7,7 +7,12 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
+import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,5 +46,11 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	public OI() {
+		shiftHighButton.whenPressed(new ShiftHighGearCommand());
+		shiftLowButton.whenPressed(new ShiftLowGearCommand());
+	}
 	public Joystick stick = new Joystick(0);
+	public Button shiftHighButton = new JoystickButton(stick, 6);
+	public Button shiftLowButton = new JoystickButton(stick, 3);
 }
