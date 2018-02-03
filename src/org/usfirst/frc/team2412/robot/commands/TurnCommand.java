@@ -4,8 +4,13 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class TurnCommand extends CommandBase {
 	private boolean firstRun = true;
-	private final double Kp = 0.61;
+	private final double Kp = 0.3;
+	private final double Ki = 0.02;
+	
+	private double previousError = 0;
+	private double error = 0;
 	private double angleToTurn = 90;
+	private double integral = 0;
 	
 	public TurnCommand() {
 		requires(driveBase);
@@ -24,9 +29,13 @@ public class TurnCommand extends CommandBase {
 			}
 			firstRun = false;
 		}
-		double angle = getError();
-		driveBase.drive(0, angle*Kp/90, false);
+		error = getError();
+		integral += (error/90d);
+		System.out.println("Integral: " + integral*Ki);
+		double turnValue = error*Kp/90 + Ki*integral;
+		driveBase.drive(0, turnValue, false);
 		System.out.println("Turning...");
+		previousError = error;
 	}
 	
 	@Override
