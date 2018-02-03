@@ -8,6 +8,8 @@
 package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.ClimbCommand;
+import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
+import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -45,10 +47,16 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	public Joystick stick = new Joystick(0);
-	public Joystick codriver = new Joystick(1);
-	public OI() {
+	public OI () {
+		liftupbutton.whenPressed(new LiftUpCommand()); 
+		liftdownbutton.whenPressed(new LiftDownCommand());
 		climbUpButton.whenPressed(new ClimbCommand());
 	}
+	public Joystick stick = new Joystick(0);
+	public Joystick codriver = new Joystick(1);
+	
 	public Button climbUpButton = new JoystickButton(codriver, 1);
+	
+	public Button liftupbutton = new JoystickButton(codriver,7);
+	public Button liftdownbutton = new JoystickButton(codriver,8);
 }
