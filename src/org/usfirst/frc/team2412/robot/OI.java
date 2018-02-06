@@ -29,16 +29,13 @@ public class OI {
 		buttonDown.whenPressed(new IntakeDown());
 		buttonIn.whenPressed(new intakeIn());
 		buttonOut.whenPressed(new intakeOut());
-		buttonOpen.whenPressed(new IntakeOpen());
-		buttonClose.whenPressed(new IntakeClose());
 	}
 	
 	public Button buttonUp = new JoystickButton(codriver, 1);
 	public Button buttonDown = new JoystickButton(codriver, 2);
 	public Button buttonIn = new JoystickButton(codriver, 3);
 	public Button buttonOut = new JoystickButton(codriver, 4);
-	public Button buttonOpen = new JoystickButton(codriver, 5);
-	public Button buttonClose = new JoystickButton(codriver, 6);
+
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.

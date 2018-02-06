@@ -77,20 +77,8 @@ public class RobotMap {
 	public static DigitalInput limitSwitch = new DigitalInput(0);
 	
 	//Coding for cylinders.
-	public static int topRight = 1;
-	public static int topRightReverse = 2;
-	public static DoubleSolenoid topRightC = new DoubleSolenoid(topRight, topRightReverse);
-	
-	public static int topLeft = 3;
-	public static int topLeftReverse = 4;
-	public static DoubleSolenoid topLeftC = new DoubleSolenoid(topRight, topRightReverse);
-	
-	public static int bottomRight = 5;
-	public static int bottomRightReverse = 6;
-	public static DoubleSolenoid bottomRightC = new DoubleSolenoid(bottomRight, bottomRightReverse);
-	
-	public static int bottomLeft = 7;
-	public static int bottomLeftReverse = 8;
-	public static DoubleSolenoid bottomLeftC = new DoubleSolenoid(bottomLeft, bottomLeftReverse);
-	
+	public static int up = 1;
+	public static int down = 2;
+	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+
 }

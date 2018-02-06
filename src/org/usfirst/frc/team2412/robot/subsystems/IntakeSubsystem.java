@@ -11,10 +11,7 @@ public class IntakeSubsystem extends Subsystem
 {
 	private DigitalInput limitSwitch = RobotMap.limitSwitch;
 	
-	private DoubleSolenoid topRightC = RobotMap.topRightC;
-	private DoubleSolenoid topLeftC = RobotMap.topLeftC;
-	private DoubleSolenoid bottomRightC = RobotMap.bottomRightC;
-	private DoubleSolenoid bottomLeftC = RobotMap.bottomLeftC;
+	private DoubleSolenoid upDown = RobotMap.upDown;
 	
 	private WPI_TalonSRX left = RobotMap.left;
 	private WPI_TalonSRX right = RobotMap.right;
@@ -31,28 +28,14 @@ public class IntakeSubsystem extends Subsystem
 		right.set(1.0);
 	}
 	
-	public void intakeOpen()
-	{
-		topRightC.set(DoubleSolenoid.Value.kForward);
-		topLeftC.set(DoubleSolenoid.Value.kForward);
-	}
-	
-	public void intakeClose()
-	{
-		topRightC.set(DoubleSolenoid.Value.kReverse);
-		topLeftC.set(DoubleSolenoid.Value.kReverse);
-	}
-	
 	public void intakeup()
 	{
-		bottomRightC.set(DoubleSolenoid.Value.kForward);
-		bottomLeftC.set(DoubleSolenoid.Value.kForward);
+		upDown.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void intakeDown()
 	{
-		bottomRightC.set(DoubleSolenoid.Value.kReverse);
-		bottomLeftC.set(DoubleSolenoid.Value.kReverse);
+		upDown.set(DoubleSolenoid.Value.kReverse);
 	}
 
 	protected void initDefaultCommand() 
