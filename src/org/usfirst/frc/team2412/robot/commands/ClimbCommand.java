@@ -7,4 +7,7 @@ public ClimbCommand() {
 protected void execute() {
 	climber.climb();
 }
+protected boolean isFinished() {
+	return true;
+}
 }
