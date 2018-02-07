@@ -6,6 +6,9 @@ public class LiftDownCommand extends CommandBase {
 		
 	} 
 	public LiftDownCommand() {
-	requires (lift);	
+		requires (lift);	
+	}
+	protected boolean isFinished() {
+		return true;
 	}
 }
