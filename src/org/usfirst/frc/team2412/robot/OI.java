@@ -50,7 +50,7 @@ public class OI {
 	public OI () {
 		liftupbutton.whenPressed(new LiftUpCommand()); 
 		liftdownbutton.whenPressed(new LiftDownCommand());
-		climbUpButton.whenPressed(new ClimbCommand());
+		climbUpButton.whileHeld(new ClimbCommand());
 	}
 	public Joystick stick = new Joystick(0);
 	public Joystick codriver = new Joystick(1);

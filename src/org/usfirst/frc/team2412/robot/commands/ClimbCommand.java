@@ -8,6 +8,9 @@ protected void execute() {
 	climber.climb();
 }
 protected boolean isFinished() {
-	return true;
+	return false;
+}
+protected void end() {
+	climber.stopClimb();
 }
 }
