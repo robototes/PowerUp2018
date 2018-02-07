@@ -48,7 +48,7 @@ public class OI {
 	public Joystick stick = new Joystick(0);
 	public Joystick codriver = new Joystick(1);
 	public OI() {
-		climbUpButton.whenPressed(new ClimbCommand());
+		climbUpButton.whileHeld(new ClimbCommand());
 	}
 	public Button climbUpButton = new JoystickButton(codriver, 1);
 }
