@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.LiftSteadyCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -18,9 +19,14 @@ public class LiftSubsystem extends Subsystem{
 		liftmotor1.set(-1.0);	
 		liftmotor2.set(-1.0);
 	}
+	public void holdsteady() {
+		liftmotor1.set(0.1);
+		liftmotor2.set(0.1);
+	}
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+		setDefaultCommand(new LiftSteadyCommand());
+		
 		
 	} 
 
