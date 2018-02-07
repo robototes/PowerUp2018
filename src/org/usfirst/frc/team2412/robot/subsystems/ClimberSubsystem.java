@@ -19,4 +19,8 @@ public void climb() {
 	climbermotors[0].set(1);
     climbermotors[1].set(1);
 }
+public void stopClimb() {
+	climbermotors[0].set(0);
+	climbermotors[1].set(0);
+}
 }
