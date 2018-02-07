@@ -47,8 +47,8 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public OI () {
-		liftupbutton.whenPressed(new LiftUpCommand()); 
-		liftdownbutton.whenPressed(new LiftDownCommand()); 
+		liftupbutton.whileHeld(new LiftUpCommand()); 
+		liftdownbutton.whileHeld(new LiftDownCommand()); 
 	}
 	public Joystick stick = new Joystick(0);
 	public Joystick codriver = new Joystick(1);

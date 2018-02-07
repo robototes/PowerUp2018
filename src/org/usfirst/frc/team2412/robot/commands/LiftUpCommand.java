@@ -8,7 +8,7 @@ public class LiftUpCommand extends CommandBase {
 		requires (lift);	
 	}
 	protected boolean isFinished() {
-		return true;
+		return false;
 	}
 }
 
