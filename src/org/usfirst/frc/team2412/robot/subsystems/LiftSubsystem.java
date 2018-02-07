@@ -16,6 +16,10 @@ public class LiftSubsystem extends Subsystem{
 		liftmotor1.set(-1.0);	
 		liftmotor2.set(-1.0);
 	}
+	public void HoldSteady() {
+		liftmotor1.set(0.1);
+		liftmotor2.set(0.1);
+	}
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
