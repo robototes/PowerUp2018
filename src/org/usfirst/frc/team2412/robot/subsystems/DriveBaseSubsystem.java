@@ -24,7 +24,7 @@ public class DriveBaseSubsystem extends Subsystem {
 	}
 	
 	public void drive(Joystick stick) {
-		robotDrive.arcadeDrive(-stick.getY(), stick.getTwist(), true);
+		robotDrive.arcadeDrive(stick.getY(), -stick.getTwist(), true);
 	}
 	
 	public void drive(double y, double x, boolean squaredInputs) {
