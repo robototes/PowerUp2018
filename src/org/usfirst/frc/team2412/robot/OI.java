@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.ClimbCommand;
+import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
+import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
 
@@ -49,8 +52,20 @@ public class OI {
 	public OI() {
 		shiftHighButton.whenPressed(new ShiftHighGearCommand());
 		shiftLowButton.whenPressed(new ShiftLowGearCommand());
+		climbUpButton.whileHeld(new ClimbCommand());
+		liftupbutton.whileHeld(new LiftUpCommand()); 
+		liftdownbutton.whileHeld(new LiftDownCommand()); 
 	}
+	
 	public Joystick stick = new Joystick(0);
+	public Joystick codriver = new Joystick(1);
+	
 	public Button shiftHighButton = new JoystickButton(stick, 6);
 	public Button shiftLowButton = new JoystickButton(stick, 3);
+		
+	
+	public Button climbUpButton = new JoystickButton(codriver, 1);
+	
+	public Button liftupbutton = new JoystickButton(codriver,5);
+	public Button liftdownbutton = new JoystickButton(codriver,4);
 }
