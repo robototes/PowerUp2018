@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
-		addSequential(new DriveXFeetCommand(35000, 20000, 35000));
+		addSequential(new DriveXFeetCommand(246000, 20000, 246000));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand());
 		addSequential(new DriveStage3Command(2500, 20000, 2500, 90));

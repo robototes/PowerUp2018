@@ -116,8 +116,11 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 		}
 		table.getEntry("startingPosition").setString("unknown");
-		RobotMap.talons[1].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-		RobotMap.talons[1].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
+		RobotMap.talons[2].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		RobotMap.talons[2].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
+		
+		RobotMap.talons[3].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		RobotMap.talons[3].setSelectedSensorPosition(0, 0, 0); //Zero out the encoder at the beginning.
 		CommandBase.driveBase.resetAngle();
 	}
 
@@ -128,7 +131,8 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-//		System.out.println("Position: " + RobotMap.talons[1].getSelectedSensorPosition(0));
+		//System.out.println("Position (left): " + RobotMap.talons[2].getSelectedSensorPosition(0));
+		//System.out.println("Position: (right): " + RobotMap.talons[3].getSelectedSensorPosition(0));
 	}
 
 	/**

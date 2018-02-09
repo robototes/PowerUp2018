@@ -35,8 +35,8 @@ public class EncoderCommand extends CommandBase {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		RobotMap.talons[0].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-		RobotMap.talons[1].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		RobotMap.talons[2].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		RobotMap.talons[3].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 	}
 	
 	@Override
@@ -51,20 +51,20 @@ public class EncoderCommand extends CommandBase {
 			return;
 		}
 		if(firstRun) {
-			startingValueLeft = RobotMap.talons[0].getSelectedSensorPosition(0);
-			startingValueRight = RobotMap.talons[1].getSelectedSensorPosition(0);
+			startingValueLeft = RobotMap.talons[2].getSelectedSensorPosition(0);
+			startingValueRight = RobotMap.talons[3].getSelectedSensorPosition(0);
 			firstRun = false;
 			distanceToDrive = getDistanceToDrive();
 		}
-		System.out.println(Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft));
-		System.out.println(Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight));
+		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
+		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
 		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(RobotMap.talons[0].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[1].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
+		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
 	}
 
 	// Called once after isFinished returns true
