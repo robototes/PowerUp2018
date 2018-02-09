@@ -23,9 +23,9 @@ public class TurnCommand extends CommandBase {
 		}
 		if(firstRun) {
 			if(PlateColorChecker.getStartingPosition().equals("Left")) {
-				angleToTurn = Math.abs(angleToTurn);
-			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
 				angleToTurn = -Math.abs(angleToTurn);
+			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
+				angleToTurn = Math.abs(angleToTurn);
 			}
 			firstRun = false;
 		}
