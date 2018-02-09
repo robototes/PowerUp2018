@@ -8,7 +8,7 @@ public class ShiftLowGearCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		driveBase.shiftLowGear();
+//		driveBase.shiftLowGear();
 	}
 	
 	@Override

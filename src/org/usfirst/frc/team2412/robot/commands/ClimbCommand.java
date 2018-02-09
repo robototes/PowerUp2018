@@ -5,12 +5,12 @@ public ClimbCommand() {
 	requires(climber);
 }
 protected void execute() {
-	climber.climb();
+//	climber.climb();
 }
 protected boolean isFinished() {
 	return false;
 }
 protected void end() {
-	climber.stopClimb();
+//	climber.stopClimb();
 }
 }
