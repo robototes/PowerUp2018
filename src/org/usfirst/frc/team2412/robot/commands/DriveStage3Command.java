@@ -16,18 +16,6 @@ public class DriveStage3Command extends EncoderCommand {
 
 	protected boolean exitEarly() {
 		if(PlateColorChecker.useDefault()) return true;
-		return !PlateColorChecker.getStartingPosition().equals("Center") &&
-				!PlateColorChecker.isSwitchCorrectColor();
-	}
-	
-	protected double getDistanceToDrive() {
-		switch(PlateColorChecker.getStartingPosition()) {
-		case "Center":
-			return distanceToDriveCenter;
-		case "Right":
-			return distanceToDriveRight;
-		default:
-			return distanceToDriveLeft;
-		}
+		return PlateColorChecker.getStartingPosition().equals("Center");
 	}
 }

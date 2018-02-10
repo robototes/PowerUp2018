@@ -7,25 +7,10 @@
 
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.PlateColorChecker;
-
-
-
-/**
- * An example command.  You can replace me with your own command.
- */
 public class DriveXFeetCommand extends EncoderCommand {
 
 	public DriveXFeetCommand(double leftDistance, double centerDistance,
 			double rightDistance) {
 		super(leftDistance, centerDistance, rightDistance);
-	}
-	
-	protected boolean exitEarly() {
-		return PlateColorChecker.getStartingPosition().equals("Center");
-	}
-	
-	protected double getDistanceToDrive() {
-		return distanceToDriveLeft;
 	}
 }

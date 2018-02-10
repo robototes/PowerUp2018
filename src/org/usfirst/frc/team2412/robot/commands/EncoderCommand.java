@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.PlateColorChecker;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -86,6 +87,13 @@ public class EncoderCommand extends CommandBase {
 	
 	// Decides which distance to drive.
 	protected double getDistanceToDrive() {
-		return distanceToDriveRight;
+		switch(PlateColorChecker.getStartingPosition()) {
+		case "Center":
+			return distanceToDriveCenter;
+		case "Right":
+			return distanceToDriveRight;
+		default:
+			return distanceToDriveLeft;
+		}
 	}
 }
