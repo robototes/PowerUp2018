@@ -10,7 +10,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new DriveXFeetCommand(230000, 140000, 230000));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand());
-		addSequential(new DriveStage3Command(20000, 20000, 20000, 90));
+		addSequential(new DriveStage3Command(20000, 20000, 20000, -90));
 //		addSequential(new DriveLimitSwitchCommand());
 		addSequential(new DropCubeCommand());
 	}

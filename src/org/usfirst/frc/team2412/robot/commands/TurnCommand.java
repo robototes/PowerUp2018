@@ -23,17 +23,16 @@ public class TurnCommand extends CommandBase {
 		}
 		if(firstRun) {
 			if(PlateColorChecker.getStartingPosition().equals("Left")) {
-				angleToTurn = Math.abs(angleToTurn);
-			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
 				angleToTurn = -Math.abs(angleToTurn);
+			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
+				angleToTurn = Math.abs(angleToTurn);
 			}
 			firstRun = false;
 		}
 		error = getError();
 		integral += (error/90d);
-		System.out.println("Integral: " + integral*Ki);
 		double turnValue = error*Kp/90 + Ki*integral;
-		driveBase.drive(0, -turnValue, false);
+		driveBase.drive(0, turnValue, false);
 		System.out.println("Turning...");
 		previousError = error;
 	}

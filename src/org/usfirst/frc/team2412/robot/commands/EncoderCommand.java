@@ -59,7 +59,7 @@ public class EncoderCommand extends CommandBase {
 		}
 		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
-		driveBase.drive(-0.5, -Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
+		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
