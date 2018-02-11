@@ -33,10 +33,7 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	
-	
 	/** WPI_TalonSRX IDs */
-	
 	public static int[] motorIDs = new int[] {
 		//    FRONT   //
 		// -----------//
@@ -81,6 +78,17 @@ public class RobotMap {
 			new WPI_TalonSRX(climbermotorIDs[0]),
 			new WPI_TalonSRX(climbermotorIDs[1])
 	};
+
+	public static int intakeLeft = 4;
+	public static int intakeRight = 5;
+	
+	public static WPI_TalonSRX left = new WPI_TalonSRX(intakeLeft);
+	public static WPI_TalonSRX right = new WPI_TalonSRX(intakeRight);
+	
+	//Coding for cylinders.
+	public static int up = 1;
+	public static int down = 2;
+	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2], talons[4]);

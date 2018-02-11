@@ -8,10 +8,14 @@
 package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.ClimbCommand;
+import org.usfirst.frc.team2412.robot.commands.IntakeDown;
+import org.usfirst.frc.team2412.robot.commands.IntakeUp;
 import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
 import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
+import org.usfirst.frc.team2412.robot.commands.intakeIn;
+import org.usfirst.frc.team2412.robot.commands.intakeOut;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -54,7 +58,11 @@ public class OI {
 		shiftLowButton.whenPressed(new ShiftLowGearCommand());
 		climbUpButton.whileHeld(new ClimbCommand());
 		liftupbutton.whileHeld(new LiftUpCommand()); 
-		liftdownbutton.whileHeld(new LiftDownCommand()); 
+		liftdownbutton.whileHeld(new LiftDownCommand());
+		buttonUp.whenPressed(new IntakeUp());
+		buttonDown.whenPressed(new IntakeDown());
+		buttonIn.whenPressed(new intakeIn());
+		buttonOut.whenPressed(new intakeOut());
 	}
 	
 	public Joystick stick = new Joystick(0);
@@ -63,9 +71,13 @@ public class OI {
 	public Button shiftHighButton = new JoystickButton(stick, 6);
 	public Button shiftLowButton = new JoystickButton(stick, 3);
 		
-	
 	public Button climbUpButton = new JoystickButton(codriver, 1);
 	
 	public Button liftupbutton = new JoystickButton(codriver,5);
 	public Button liftdownbutton = new JoystickButton(codriver,4);
+	
+	public Button buttonUp = new JoystickButton(codriver, 1);
+	public Button buttonDown = new JoystickButton(codriver, 2);
+	public Button buttonIn = new JoystickButton(codriver, 3);
+	public Button buttonOut = new JoystickButton(codriver, 4);
 }
