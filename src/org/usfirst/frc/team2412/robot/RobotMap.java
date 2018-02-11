@@ -67,22 +67,21 @@ public class RobotMap {
 		new WPI_TalonSRX(motorIDs[4]),
 		new WPI_TalonSRX(motorIDs[5])
 	};
-	/*
-	public static int liftmoterID1 = 0;
-	public static int liftmoterID2 = 6;
+	public static int liftmoterID1 = 8;
+	public static int liftmoterID2 = 4;
 	
 	public static WPI_TalonSRX liftmoter1 = new WPI_TalonSRX(liftmoterID1);
 	public static WPI_TalonSRX liftmoter2 = new WPI_TalonSRX(liftmoterID2);
 	
 	public static int [] climbermotorIDs = new int[] {
-		11, 7
+		7,0
 		};
 	
 	public static WPI_TalonSRX[] climberstalons = new WPI_TalonSRX[] {
 			new WPI_TalonSRX(climbermotorIDs[0]),
 			new WPI_TalonSRX(climbermotorIDs[1])
 	};
-	*/
+	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2], talons[4]);
 	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(talons[1], talons[3], talons[5]);
