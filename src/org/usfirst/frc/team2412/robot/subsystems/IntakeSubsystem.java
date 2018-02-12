@@ -12,7 +12,7 @@ public class IntakeSubsystem extends Subsystem
 {
 	private DigitalInput limitSwitch = RobotMap.limitSwitch;
 	
-	private DoubleSolenoid upDown = RobotMap.upDown;
+//	private DoubleSolenoid upDown = RobotMap.upDown;
 	
 	private WPI_TalonSRX left = RobotMap.left;
 	private WPI_TalonSRX right = RobotMap.right;
@@ -28,7 +28,7 @@ public class IntakeSubsystem extends Subsystem
 		left.set(-1.0);
 		right.set(1.0);
 	}
-	
+	/*
 	public void intakeup()
 	{
 		upDown.set(DoubleSolenoid.Value.kForward);
@@ -38,7 +38,7 @@ public class IntakeSubsystem extends Subsystem
 	{
 		upDown.set(DoubleSolenoid.Value.kReverse);
 	}
-
+*/
 	protected void initDefaultCommand() 
 	{
 		

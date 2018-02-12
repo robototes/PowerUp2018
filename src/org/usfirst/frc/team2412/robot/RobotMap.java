@@ -88,7 +88,7 @@ public class RobotMap {
 	//Coding for cylinders.
 	public static int up = 1;
 	public static int down = 2;
-	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+//	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2], talons[4]);
