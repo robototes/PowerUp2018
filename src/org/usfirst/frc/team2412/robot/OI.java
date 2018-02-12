@@ -76,8 +76,8 @@ public class OI {
 	public Button liftupbutton = new JoystickButton(codriver,5);
 	public Button liftdownbutton = new JoystickButton(codriver,4);
 	
-	public Button buttonUp = new JoystickButton(codriver, 1);
-	public Button buttonDown = new JoystickButton(codriver, 2);
-	public Button buttonIn = new JoystickButton(codriver, 3);
-	public Button buttonOut = new JoystickButton(codriver, 4);
+	public Button buttonUp = new JoystickButton(codriver, 6);
+	public Button buttonDown = new JoystickButton(codriver, 3);
+	public Button buttonIn = new JoystickButton(codriver, 11);
+	public Button buttonOut = new JoystickButton(codriver, 9);
 }
