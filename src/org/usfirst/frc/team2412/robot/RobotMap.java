@@ -64,14 +64,14 @@ public class RobotMap {
 		new WPI_TalonSRX(motorIDs[4]),
 		new WPI_TalonSRX(motorIDs[5])
 	};
-	public static int liftmoterID1 = 8;
-	public static int liftmoterID2 = 4;
+	public static int liftmoterID1 = 11;
+	public static int liftmoterID2 = 12;
 	
 	public static WPI_TalonSRX liftmoter1 = new WPI_TalonSRX(liftmoterID1);
 	public static WPI_TalonSRX liftmoter2 = new WPI_TalonSRX(liftmoterID2);
 	
 	public static int [] climbermotorIDs = new int[] {
-		7,0
+		8,4
 		};
 	
 	public static WPI_TalonSRX[] climberstalons = new WPI_TalonSRX[] {
@@ -79,8 +79,8 @@ public class RobotMap {
 			new WPI_TalonSRX(climbermotorIDs[1])
 	};
 
-	public static int intakeLeft = 11;
-	public static int intakeRight = 12;
+	public static int intakeLeft = 0;
+	public static int intakeRight = 7;
 	
 	public static WPI_TalonSRX left = new WPI_TalonSRX(intakeLeft);
 	public static WPI_TalonSRX right = new WPI_TalonSRX(intakeRight);
