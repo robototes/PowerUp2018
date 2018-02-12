@@ -79,8 +79,8 @@ public class RobotMap {
 			new WPI_TalonSRX(climbermotorIDs[1])
 	};
 
-	public static int intakeLeft = 4;
-	public static int intakeRight = 5;
+	public static int intakeLeft = 11;
+	public static int intakeRight = 12;
 	
 	public static WPI_TalonSRX left = new WPI_TalonSRX(intakeLeft);
 	public static WPI_TalonSRX right = new WPI_TalonSRX(intakeRight);
