@@ -11,7 +11,9 @@ import org.usfirst.frc.team2412.robot.commands.IntakeClose;
 import org.usfirst.frc.team2412.robot.commands.IntakeDown;
 import org.usfirst.frc.team2412.robot.commands.IntakeOpen;
 import org.usfirst.frc.team2412.robot.commands.IntakeUp;
+import org.usfirst.frc.team2412.robot.commands.intakeClose;
 import org.usfirst.frc.team2412.robot.commands.intakeIn;
+import org.usfirst.frc.team2412.robot.commands.intakeOpen;
 import org.usfirst.frc.team2412.robot.commands.intakeOut;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -29,12 +31,17 @@ public class OI {
 		buttonDown.whenPressed(new IntakeDown());
 		buttonIn.whenPressed(new intakeIn());
 		buttonOut.whenPressed(new intakeOut());
+		buttonOpen.whenPressed(new intakeOpen());
+		buttonClose.whenPressed(new intakeClose());
+		
 	}
 	
 	public Button buttonUp = new JoystickButton(codriver, 1);
 	public Button buttonDown = new JoystickButton(codriver, 2);
 	public Button buttonIn = new JoystickButton(codriver, 3);
 	public Button buttonOut = new JoystickButton(codriver, 4);
+	public Button buttonOpen = new JoystickButton(codriver, 5);
+	public Button buttonClose = new JoystickButton(codriver, 6);
 
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

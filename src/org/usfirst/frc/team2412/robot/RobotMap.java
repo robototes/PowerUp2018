@@ -81,4 +81,7 @@ public class RobotMap {
 	public static int down = 2;
 	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
+	public static int open = 3;
+	public static int close = 4;
+	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
 }
