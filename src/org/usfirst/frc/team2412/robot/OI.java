@@ -14,7 +14,9 @@ import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
 import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
+import org.usfirst.frc.team2412.robot.commands.intakeClose;
 import org.usfirst.frc.team2412.robot.commands.intakeIn;
+import org.usfirst.frc.team2412.robot.commands.intakeOpen;
 import org.usfirst.frc.team2412.robot.commands.intakeOut;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -63,6 +65,8 @@ public class OI {
 		buttonDown.whenPressed(new IntakeDown());
 		buttonIn.whenPressed(new intakeIn());
 		buttonOut.whenPressed(new intakeOut());
+		buttonOpen.whenPressed(new intakeOpen());
+		buttonClose.whenPressed(new intakeClose());
 	}
 	
 	public Joystick stick = new Joystick(0);
@@ -76,8 +80,10 @@ public class OI {
 	public Button liftupbutton = new JoystickButton(codriver,5);
 	public Button liftdownbutton = new JoystickButton(codriver,6);
 	
-	public Button buttonUp = new JoystickButton(codriver, 12);
-	public Button buttonDown = new JoystickButton(codriver, 4);
-	public Button buttonIn = new JoystickButton(codriver, 2);
-	public Button buttonOut = new JoystickButton(codriver, 1);
+	public Button buttonUp = new JoystickButton(codriver, 1);
+	public Button buttonDown = new JoystickButton(codriver, 2);
+	public Button buttonIn = new JoystickButton(codriver, 3);
+	public Button buttonOut = new JoystickButton(codriver, 4);
+	public Button buttonOpen = new JoystickButton(codriver, 5);
+	public Button buttonClose = new JoystickButton(codriver, 6);
 }
