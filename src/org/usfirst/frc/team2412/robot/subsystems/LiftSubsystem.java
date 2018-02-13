@@ -8,22 +8,22 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LiftSubsystem extends Subsystem{
-	/*
+	
 	private WPI_TalonSRX liftmotor1 = RobotMap.liftmoter1;
 	private WPI_TalonSRX liftmotor2 = RobotMap.liftmoter2;
 	
 	public void liftup() {
-		liftmotor1.set(1.0);	
-		liftmotor2.set(1.0);
+		liftmotor1.set(0.3);	
+		liftmotor2.set(0.3);
 	}
 	public void liftdown() {
-		liftmotor1.set(-1.0);	
-		liftmotor2.set(-1.0);
+		liftmotor1.set(-0.65);	
+		liftmotor2.set(-0.65);
 	}
 	public void holdsteady() {
-		liftmotor1.set(0.1);
-		liftmotor2.set(0.1);
-	}*/
+		liftmotor1.set(-0.17);
+		liftmotor2.set(-0.17);
+	}
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new LiftSteadyCommand());
