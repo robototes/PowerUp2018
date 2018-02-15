@@ -4,8 +4,17 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class DropCubeCommand extends CommandBase {
 
+	private double startTime = 0;
+	private double timeToSpin = 1;
+	
 	public DropCubeCommand() {
-//		requires(driveBase);
+		requires(intake);
+	}
+	
+	@Override
+	public void start() {
+		super.start();
+		startTime = getTimeSeconds();
 	}
 	
 	@Override
@@ -13,16 +22,25 @@ public class DropCubeCommand extends CommandBase {
 		if(exitEarly()) {
 			return;
 		}
-		System.out.println("Dropping cube...");
+		intake.spinWheelsOut();
+	}
+	
+	@Override
+	protected void end() {
+		intake.stopWheels();
 	}
 	
 	@Override
 	protected boolean isFinished() {
-		return true;
+		return getTimeSeconds() - startTime > timeToSpin;
 	}
 	
 	private boolean exitEarly() {
 		if(PlateColorChecker.useDefault()) return true;
 		return !PlateColorChecker.isSwitchCorrectColor();
+	}
+	
+	private double getTimeSeconds() {
+		return System.nanoTime() / 1E9;
 	}
 }
