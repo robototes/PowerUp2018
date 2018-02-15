@@ -11,4 +11,7 @@ public class intakeOut extends CommandBase
 	{
 		intake.spinWheelsOut();
 	}
+	protected void end() {
+		intake.stopWheels();
+	}
 }

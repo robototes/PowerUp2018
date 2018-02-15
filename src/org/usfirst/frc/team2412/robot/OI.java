@@ -63,8 +63,8 @@ public class OI {
 		liftdownbutton.whileHeld(new LiftDownCommand());
 		buttonUp.whenPressed(new IntakeUp());
 		buttonDown.whenPressed(new IntakeDown());
-		buttonIn.whenPressed(new intakeIn());
-		buttonOut.whenPressed(new intakeOut());
+		buttonIn.whileHeld(new intakeIn());
+		buttonOut.whileHeld(new intakeOut());
 		buttonOpen.whenPressed(new intakeOpen());
 		buttonClose.whenPressed(new intakeClose());
 	}
