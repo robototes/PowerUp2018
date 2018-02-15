@@ -17,8 +17,8 @@ public class LiftSubsystem extends Subsystem{
 		liftmotor2.set(0.3);
 	}
 	public void liftdown() {
-		liftmotor1.set(-0.65);	
-		liftmotor2.set(-0.65);
+		liftmotor1.set(-0.85);	
+		liftmotor2.set(-0.85);
 	}
 	public void holdsteady() {
 		liftmotor1.set(-0.17);
