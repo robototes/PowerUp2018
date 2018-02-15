@@ -86,12 +86,12 @@ public class RobotMap {
 	public static WPI_TalonSRX right = new WPI_TalonSRX(intakeRight);
 	
 	//Coding for cylinders.
-	public static int up = 1;
-	public static int down = 2;
+	public static int up = 4;
+	public static int down = 0;
 	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
-	public static int open = 3;
-	public static int close = 4;
+	public static int open = 5;
+	public static int close = 1;
 	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
 	
 	/** SpeedControllerGroup instances */
@@ -108,7 +108,7 @@ public class RobotMap {
 	public static DigitalInput limitSwitch = new DigitalInput(0);
 	
 	/** DoubleSolenoid IDs */
-	public static int shifterID = 1;
+	public static int shifterID = 6;
 	public static int shifterIDReverse = 2;
 	
 	/** DoubleSolenoid for shifting gearboxes */
