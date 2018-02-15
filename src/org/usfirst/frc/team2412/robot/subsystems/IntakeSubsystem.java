@@ -30,6 +30,11 @@ public class IntakeSubsystem extends Subsystem
 		right.set(1.0);
 	}
 	
+	public void stopWheels() {
+		left.set(0.0);
+		right.set(0.0);
+	}
+	
 	public void intakeup()
 	{
 //		upDown.set(DoubleSolenoid.Value.kForward);
