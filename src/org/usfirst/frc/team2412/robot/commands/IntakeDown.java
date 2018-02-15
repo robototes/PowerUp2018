@@ -10,6 +10,6 @@ public class IntakeDown extends CommandBase
 	
 	public void execute()
 	{
-//		intake.intakeDown();
+		intake.intakeDown();
 	}
 }

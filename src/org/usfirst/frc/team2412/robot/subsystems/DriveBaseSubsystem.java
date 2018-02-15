@@ -14,7 +14,7 @@ public class DriveBaseSubsystem extends Subsystem {
 	//DifferentialDrive for driving.
 	private DifferentialDrive robotDrive = RobotMap.robotDrive;
 	//DoubleSolenoid for shifting.
-//	private DoubleSolenoid shifter = RobotMap.shifter;
+	private DoubleSolenoid shifter = RobotMap.shifter;
 	
 	//Gyroscope for turning.
 	private GyroBase gyro = RobotMap.gyro;
@@ -43,12 +43,12 @@ public class DriveBaseSubsystem extends Subsystem {
 	public void resetAngle() {
 		gyro.reset();
 	}
-	/*
+	
 	public void shiftHighGear() {
 		shifter.set(Value.kForward);
 	}
 	
 	public void shiftLowGear() {
 		shifter.set(Value.kReverse);
-	}*/
+	}
 }

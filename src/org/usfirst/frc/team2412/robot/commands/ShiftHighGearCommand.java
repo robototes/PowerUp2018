@@ -8,7 +8,7 @@ public class ShiftHighGearCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-//		driveBase.shiftHighGear();
+		driveBase.shiftHighGear();
 	}
 	
 	@Override

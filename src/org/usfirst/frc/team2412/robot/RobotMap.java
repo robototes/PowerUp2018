@@ -88,11 +88,11 @@ public class RobotMap {
 	//Coding for cylinders.
 	public static int up = 1;
 	public static int down = 2;
-//	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
 	public static int open = 3;
 	public static int close = 4;
-//	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
+	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
 	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2], talons[4]);
@@ -112,5 +112,5 @@ public class RobotMap {
 	public static int shifterIDReverse = 2;
 	
 	/** DoubleSolenoid for shifting gearboxes */
-	//public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
+	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
 }
