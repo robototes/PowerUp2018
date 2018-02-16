@@ -56,6 +56,11 @@ public class EncoderCommand extends CommandBase {
 			startingValueRight = RobotMap.talons[3].getSelectedSensorPosition(0);
 			firstRun = false;
 			distanceToDrive = getDistanceToDrive();
+			if(PlateColorChecker.getStartingPosition().equals("Left")) {
+				angleToTurn = -Math.abs(angleToTurn);
+			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
+				angleToTurn = Math.abs(angleToTurn);
+			}
 		}
 		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
