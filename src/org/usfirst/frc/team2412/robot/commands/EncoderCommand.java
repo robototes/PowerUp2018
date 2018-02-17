@@ -62,8 +62,8 @@ public class EncoderCommand extends CommandBase {
 				angleToTurn = Math.abs(angleToTurn);
 			}
 		}
-		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
-		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
+		System.out.println("Left: " + Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
+		System.out.println("Right: " + Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
 		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
