@@ -13,7 +13,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new IntakeCubeAutoCommand());
 		addSequential(new EncoderCommand(-0.5, 2000, 2000, 2000));
 		addSequential(new AutoIntakeInCommand());
-		
+		addSequential(new IntakeUp());
 		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
 		addSequential(new DriveXFeetCommand(0.5, 230000, 120000, 190000));
