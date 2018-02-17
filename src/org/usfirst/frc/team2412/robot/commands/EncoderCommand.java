@@ -23,7 +23,7 @@ public class EncoderCommand extends CommandBase {
 	private double driveSpeed = 0.5;
 	
 	public EncoderCommand(double speed, double leftDistance, double centerDistance, double rightDistance) {
-		speed = driveSpeed;
+		driveSpeed = speed;
 		distanceToDriveLeft = leftDistance;
 		distanceToDriveCenter = centerDistance;
 		distanceToDriveRight = rightDistance;
@@ -73,7 +73,7 @@ public class EncoderCommand extends CommandBase {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
+		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > Math.abs(distanceToDrive) && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > Math.abs(distanceToDrive);
 	}
 
 	// Called once after isFinished returns true

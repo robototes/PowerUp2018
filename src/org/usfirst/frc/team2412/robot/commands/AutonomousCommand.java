@@ -8,9 +8,11 @@ public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
 		addSequential(new AutoIntakeOpenCommand());
 		addSequential(new WaitCommand(1.25));
-		addSequential(new EncoderCommand(0.2, 2500, 2500, 2500));
+		addSequential(new EncoderCommand(0.5, 2500, 2500, 2500));
 		addSequential(new WaitCommand(0.5));
 		addSequential(new IntakeCubeAutoCommand());
+		addSequential(new EncoderCommand(-0.5, 2000, 2000, 2000));
+		addSequential(new AutoIntakeInCommand());
 		
 		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
