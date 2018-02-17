@@ -9,8 +9,8 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class DriveXFeetCommand extends EncoderCommand {
 
-	public DriveXFeetCommand(double leftDistance, double centerDistance,
+	public DriveXFeetCommand(double speed, double leftDistance, double centerDistance,
 			double rightDistance) {
-		super(leftDistance, centerDistance, rightDistance);
+		super(speed, leftDistance, centerDistance, rightDistance);
 	}
 }
