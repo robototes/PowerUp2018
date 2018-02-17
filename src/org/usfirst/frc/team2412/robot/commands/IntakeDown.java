@@ -12,4 +12,9 @@ public class IntakeDown extends CommandBase
 	{
 		intake.intakeDown();
 	}
+	
+	@Override
+	protected boolean isFinished() {
+		return true;
+	}
 }
