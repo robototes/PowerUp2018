@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
+		addSequential(new EncoderCommand(4737, 120000, 190000));
 		addSequential(new IntakeCubeAutoCommand());
 		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
