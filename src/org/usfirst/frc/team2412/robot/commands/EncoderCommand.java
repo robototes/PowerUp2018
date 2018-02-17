@@ -10,21 +10,14 @@ public class EncoderCommand extends CommandBase {
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
 	
-	/** Driving PI controller values */
-	private final double Kp_driving = 0.20;
-	private final double Ki_driving = 0.0005;
-	
-	private double previousDriveError = 0;
-	private double driveError = 0;
-	private double driveIntegral = 0;
-	private double distanceToDrive = 0;
-	
 	protected double distanceToDriveLeft;
 	protected double distanceToDriveCenter;
 	protected double distanceToDriveRight;
 	
-	/** Turning P controller values */
-	private final double Kp_turning = 2;
+	private double distanceToDrive = 0;
+	
+	private final double Kp = 2;
+	
 	private double angleToTurn = 0;
 	
 	public EncoderCommand(double leftDistance, double centerDistance, double rightDistance) {
@@ -71,11 +64,7 @@ public class EncoderCommand extends CommandBase {
 		}
 		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
-		
-		driveError = getDistanceError();
-		driveIntegral += (driveError/distanceToDrive);
-		double driveValue = driveError*Kp_driving/distanceToDrive + Ki_driving*driveIntegral;
-		driveBase.drive(driveValue, Kp_turning * (angleToTurn - driveBase.getAngle()) / 90, false);
+		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -88,7 +77,6 @@ public class EncoderCommand extends CommandBase {
 	@Override
 	protected void end() {
 		firstRun = true;
-		driveIntegral = 0;
 	}
 
 	// Called when another command which requires one or more of the same
@@ -112,10 +100,5 @@ public class EncoderCommand extends CommandBase {
 		default:
 			return distanceToDriveLeft;
 		}
-	}
-	
-	// Gets the distance error for PI control.
-	private double getDistanceError() {
-		return distanceToDrive - RobotMap.talons[2].getSelectedSensorPosition(0);
 	}
 }
