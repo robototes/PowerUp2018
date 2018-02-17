@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class IntakeCubeAutoCommand extends CommandGroup {
 	public IntakeCubeAutoCommand() {
-		addSequential(new intakeOpen());
+		addSequential(new intakeClose());
 		addSequential(new AutoIntakeInCommand());
 	}
 }

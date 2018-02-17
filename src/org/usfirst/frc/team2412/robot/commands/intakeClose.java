@@ -12,4 +12,9 @@ public class intakeClose extends CommandBase
 	{
 		intake.intakeClose();
 	}
+	
+	@Override
+	protected boolean isFinished() {
+		return true;
+	}
 }

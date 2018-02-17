@@ -12,9 +12,4 @@ public class intakeOpen extends CommandBase
 	{
 		intake.intakeOpen();
 	}
-	
-	@Override
-	protected boolean isFinished() {
-		return true;
-	}
 }
