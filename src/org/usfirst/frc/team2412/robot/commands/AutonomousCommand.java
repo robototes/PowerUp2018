@@ -16,6 +16,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new DriveStage3Command(-0.5, 14000, 14000, 14000, -90));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0));
+		addSequential(new EncoderCommand(0.5, 60000, 60000, 60000));
 		/*
 		addSequential(new AutoIntakeOpenCommand());
 		addSequential(new WaitCommand(1.25));
