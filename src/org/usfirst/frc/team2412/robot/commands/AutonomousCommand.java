@@ -6,6 +6,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
+		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
+		addSequential(new DriveXFeetCommand(0.5, 230000, 120000, 190000));
+		addSequential(new WaitCommand(1));
+		addSequential(new TurnCommand());
+		addSequential(new DriveStage3Command(0.5, 14000, 14000, 14000, -90));
+//		addSequential(new DriveLimitSwitchCommand());
+		addSequential(new DropCubeCommand());
+		/*
 		addSequential(new AutoIntakeOpenCommand());
 		addSequential(new WaitCommand(1.25));
 		addSequential(new EncoderCommand(0.5, 2500, 2500, 2500));
@@ -17,14 +25,6 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new WaitCommand(2));
 		addSequential(new EncoderCommand(0.5, 4000, 4000, 4000, 10));
 		addSequential(new intakeOut());
-		/*
-		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
-		addSequential(new DriveXFeetCommand(0.5, 230000, 120000, 190000));
-		addSequential(new WaitCommand(1));
-		addSequential(new TurnCommand());
-		addSequential(new DriveStage3Command(0.5, 14000, 14000, 14000, -90));
-//		addSequential(new DriveLimitSwitchCommand());
-		addSequential(new DropCubeCommand());
 		*/
 	}
 }
