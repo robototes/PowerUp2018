@@ -16,6 +16,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new IntakeUp());
 		addSequential(new WaitCommand(2));
 		addSequential(new EncoderCommand(0.5, 4000, 4000, 4000, 10));
+		addSequential(new intakeOut());
 		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
 		addSequential(new DriveXFeetCommand(0.5, 230000, 120000, 190000));
