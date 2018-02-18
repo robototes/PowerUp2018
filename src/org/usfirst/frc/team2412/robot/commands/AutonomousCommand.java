@@ -17,6 +17,8 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0));
 		addSequential(new EncoderCommand(0.5, 60000, 60000, 60000));
+		addSequential(new WaitCommand(1));
+		addSequential(new TurnCommand(90));
 		/*
 		addSequential(new AutoIntakeOpenCommand());
 		addSequential(new WaitCommand(1.25));
