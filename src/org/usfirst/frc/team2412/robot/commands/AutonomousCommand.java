@@ -13,6 +13,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new DriveStage3Command(0.5, 14000, 14000, 14000, -90));
 //		addSequential(new DriveLimitSwitchCommand());
 		addSequential(new DropCubeCommand());
+		addSequential(new DriveStage3Command(-0.5, 14000, 14000, 14000, -90));
 		/*
 		addSequential(new AutoIntakeOpenCommand());
 		addSequential(new WaitCommand(1.25));
