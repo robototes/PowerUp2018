@@ -12,8 +12,14 @@ public class TurnCommand extends CommandBase {
 	private double angleToTurn = 90;
 	private double integral = 0;
 	
+	public TurnCommand(double angle) {
+		requires(driveBase);
+		angleToTurn = angle;
+	}
+	
 	public TurnCommand() {
 		requires(driveBase);
+		angleToTurn = 90;
 	}
 	
 	@Override
