@@ -20,7 +20,10 @@ public class EncoderCommand extends CommandBase {
 	
 	private double angleToTurn = 0;
 	
-	public EncoderCommand(double leftDistance, double centerDistance, double rightDistance) {
+	private double driveSpeed = 0.5;
+	
+	public EncoderCommand(double speed, double leftDistance, double centerDistance, double rightDistance) {
+		driveSpeed = speed;
 		distanceToDriveLeft = leftDistance;
 		distanceToDriveCenter = centerDistance;
 		distanceToDriveRight = rightDistance;
@@ -28,8 +31,8 @@ public class EncoderCommand extends CommandBase {
 		requires(driveBase);
 	}
 	
-	public EncoderCommand(double leftDistance, double centerDistance, double rightDistance, double angle) {
-		this(leftDistance, centerDistance, rightDistance);
+	public EncoderCommand(double speed, double leftDistance, double centerDistance, double rightDistance, double angle) {
+		this(speed, leftDistance, centerDistance, rightDistance);
 		angleToTurn = angle;
 	}
 
@@ -62,15 +65,15 @@ public class EncoderCommand extends CommandBase {
 				angleToTurn = Math.abs(angleToTurn);
 			}
 		}
-		System.out.println(Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
-		System.out.println(Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
-		driveBase.drive(0.5, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
+		System.out.println("Left: " + Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
+		System.out.println("Right: " + Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
+		driveBase.drive(driveSpeed, Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > distanceToDrive && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > distanceToDrive;
+		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > Math.abs(distanceToDrive) && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > Math.abs(distanceToDrive);
 	}
 
 	// Called once after isFinished returns true

@@ -4,18 +4,19 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class DriveStage3Command extends EncoderCommand {
 
-	public DriveStage3Command(double leftDistance, double centerDistance,
+	public DriveStage3Command(double speed, double leftDistance, double centerDistance,
 			double rightDistance) {
-		super(leftDistance, centerDistance, rightDistance);
+		super(speed, leftDistance, centerDistance, rightDistance);
 	}
 	
-	public DriveStage3Command(double leftDistance, double centerDistance,
+	public DriveStage3Command(double speed, double leftDistance, double centerDistance,
 			double rightDistance, double angle) {
-		super(leftDistance, centerDistance, rightDistance, angle);
+		super(speed, leftDistance, centerDistance, rightDistance, angle);
 	}
 
 	protected boolean exitEarly() {
 		if(PlateColorChecker.useDefault()) return true;
-		return PlateColorChecker.getStartingPosition().equals("Center");
+		if (PlateColorChecker.getStartingPosition().equals("Center")) return true;
+		return !PlateColorChecker.isSwitchCorrectColor();
 	}
 }

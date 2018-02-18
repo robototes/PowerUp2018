@@ -12,4 +12,9 @@ public class IntakeUp extends CommandBase
 	{
 		intake.intakeup();
 	}
+	
+	@Override
+	protected boolean isFinished() {
+		return true;
+	}
 }
