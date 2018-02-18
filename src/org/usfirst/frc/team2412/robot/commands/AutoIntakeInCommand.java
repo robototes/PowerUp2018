@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class AutoIntakeInCommand extends intakeIn {
 	private double startTime = 0;
-	private double timeToSpin = 1;
+	private double timeToSpin = 0.5;
 	
 	@Override
 	public void execute() {
