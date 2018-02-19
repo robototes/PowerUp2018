@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		
+		addSequential(new ShiftLowGearCommand());
 		addSequential(new EncoderCommand(0.5, 20000, 20000, 20000));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(-90));
