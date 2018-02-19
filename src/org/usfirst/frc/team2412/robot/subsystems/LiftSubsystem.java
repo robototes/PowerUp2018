@@ -13,12 +13,12 @@ public class LiftSubsystem extends Subsystem{
 	private WPI_TalonSRX liftmotor2 = RobotMap.liftmoter2;
 	
 	public void liftup() {
-		liftmotor1.set(0.3);	
-		liftmotor2.set(0.3);
-	}
-	public void liftdown() {
 		liftmotor1.set(-0.85);	
 		liftmotor2.set(-0.85);
+	}
+	public void liftdown() {
+		liftmotor1.set(0.3);	
+		liftmotor2.set(0.3);
 	}
 	public void holdsteady() {
 		liftmotor1.set(-0.1);

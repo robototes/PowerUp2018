@@ -13,7 +13,7 @@ public class LiftUpLimitSwitchCommand extends CommandBase {
 		if(exitEarly()) {
 			return;
 		}
-		lift.liftdown();
+		lift.liftup();
 	}
 	
 	protected boolean isFinished() {
