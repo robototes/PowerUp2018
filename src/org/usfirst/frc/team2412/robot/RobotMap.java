@@ -105,7 +105,7 @@ public class RobotMap {
 	public static GyroBase gyro = new ADXRS450_Gyro();
 	
 	/** Limit switch */
-	public static DigitalInput limitSwitch = new DigitalInput(0);
+	public static DigitalInput limitSwitch = new DigitalInput(6);
 	
 	/** DoubleSolenoid IDs */
 	public static int shifterID = 6;

@@ -3,17 +3,17 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.PlateColorChecker;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-public class DriveLimitSwitchCommand extends CommandBase {
+public class LiftUpLimitSwitchCommand extends CommandBase {
 	
-	public DriveLimitSwitchCommand() {
-		requires(driveBase);
+	public LiftUpLimitSwitchCommand() {
+		requires(lift);
 	}
 	
 	protected void execute() {
 		if(exitEarly()) {
 			return;
 		}
-		driveBase.drive(0.5, 0, false);
+		lift.liftdown();
 	}
 	
 	protected boolean isFinished() {
