@@ -65,7 +65,7 @@ public class RobotMap {
 		new WPI_TalonSRX(motorIDs[5])
 	};
 	public static int liftmoterID1 = 11;
-	public static int liftmoterID2 = 12;
+	public static int liftmoterID2 = 6;
 	
 	public static WPI_TalonSRX liftmoter1 = new WPI_TalonSRX(liftmoterID1);
 	public static WPI_TalonSRX liftmoter2 = new WPI_TalonSRX(liftmoterID2);
