@@ -60,9 +60,7 @@ public class EncoderCommand extends CommandBase {
 			firstRun = false;
 			distanceToDrive = getDistanceToDrive();
 			if(PlateColorChecker.getStartingPosition().equals("Left")) {
-				angleToTurn = -Math.abs(angleToTurn);
-			} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
-				angleToTurn = Math.abs(angleToTurn);
+				angleToTurn = -angleToTurn;
 			}
 		}
 		System.out.println("Left: " + Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
