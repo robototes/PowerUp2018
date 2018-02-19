@@ -6,14 +6,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new ShiftLowGearCommand());
+		addSequential(new ShiftHighGearCommand());
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
-		addSequential(new EncoderCommand(0.5, 460000, 120000, 460000, -5));
+		addSequential(new EncoderCommand(0.8, 460000, 120000, 460000, -2));
+		addSequential(new ShiftLowGearCommand());
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(80));
 		addSequential(new IntakeDown()); //TODO COMMENT OUT THIS LINE WHEN WE'RE AT SAMMAMISH
 		addSequential(new LiftUpLimitSwitchCommand());
-		addSequential(new EncoderCommand(0.2, 30000, 20000, 20000, 90));
+		addSequential(new EncoderCommand(0.2, 15000, 20000, 20000, 90));
 		addSequential(new DropCubeCommand());
 		
 //		addSequential(new IntakeDown());
