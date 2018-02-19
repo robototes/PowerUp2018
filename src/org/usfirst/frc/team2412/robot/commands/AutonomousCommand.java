@@ -10,7 +10,7 @@ public class AutonomousCommand extends CommandGroup {
 		addSequential(new EncoderCommand(0.5, 20000, 20000, 20000));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(-90));
-		addSequential(new EncoderCommand(0.5, 50000, 50000, 50000, -90));
+		addSequential(new EncoderCommand(0.5, 30000, 30000, 30000, -90));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0));
 		addSequential(new EncoderCommand(0.5, 110000, 110000, 110000));
