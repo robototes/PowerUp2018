@@ -33,4 +33,12 @@ public class EncoderStartingPositionCommand extends EncoderCommand {
 			return distanceToDriveLeft;
 		}
 	}
+	
+	// Decides which angle to turn.
+	protected double getAngleToTurn() {
+		if(PlateColorChecker.getStartingPosition().equals("Left")) {
+			return -super.getAngleToTurn();
+		}
+		return super.getAngleToTurn();
+	}
 }
