@@ -10,10 +10,6 @@ public class EncoderCommand extends CommandBase {
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
 	
-	protected double distanceToDriveLeft;
-	protected double distanceToDriveCenter;
-	protected double distanceToDriveRight;
-	
 	private double distanceToDrive = 0;
 	
 	private final double Kp = 2;
@@ -22,17 +18,15 @@ public class EncoderCommand extends CommandBase {
 	
 	private double driveSpeed = 0.5;
 	
-	public EncoderCommand(double speed, double leftDistance, double centerDistance, double rightDistance) {
+	public EncoderCommand(double speed, double driveDistance) {
 		driveSpeed = speed;
-		distanceToDriveLeft = leftDistance;
-		distanceToDriveCenter = centerDistance;
-		distanceToDriveRight = rightDistance;
+		distanceToDrive = driveDistance;
 		// Use requires() here to declare subsystem dependencies
 		requires(driveBase);
 	}
 	
-	public EncoderCommand(double speed, double leftDistance, double centerDistance, double rightDistance, double angle) {
-		this(speed, leftDistance, centerDistance, rightDistance);
+	public EncoderCommand(double speed, double driveDistance, double angle) {
+		this(speed, driveDistance);
 		angleToTurn = angle;
 	}
 
@@ -93,13 +87,6 @@ public class EncoderCommand extends CommandBase {
 	
 	// Decides which distance to drive.
 	protected double getDistanceToDrive() {
-		switch(PlateColorChecker.getStartingPosition()) {
-		case "Center":
-			return distanceToDriveCenter;
-		case "Right":
-			return distanceToDriveRight;
-		default:
-			return distanceToDriveLeft;
-		}
+		return distanceToDrive;
 	}
 }
