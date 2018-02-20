@@ -36,8 +36,7 @@ public class TurnCommand extends CommandBase {
 		error = getError();
 		integral += (error/90d);
 		double turnValue = error*Kp/90 + Ki*integral;
-		driveBase.drive(0, turnValue, false);
-		System.out.println("Turning...");
+		driveBase.drive(0, -turnValue, false);
 		previousError = error;
 	}
 	

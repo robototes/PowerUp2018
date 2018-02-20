@@ -1,11 +1,11 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.PlateColorChecker;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
+		addSequential(new AutoMiddleSwitchCommand());
+		/*
 		addSequential(new ShiftHighGearCommand());
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
 		addSequential(new EncoderCommand(0.8, 460000, 120000, 460000, -2));
