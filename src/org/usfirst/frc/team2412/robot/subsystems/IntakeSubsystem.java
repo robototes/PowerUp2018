@@ -20,14 +20,14 @@ public class IntakeSubsystem extends Subsystem
 	
 	public void spinWheelsIn()
 	{
-		left.set(1.0);
-		right.set(-1.0);	
+		left.set(-1.0);
+		right.set(1.0);	
 	}
 	
 	public void spinWheelsOut()
 	{
-		left.set(-1.0);
-		right.set(1.0);
+		left.set(1.0);
+		right.set(-1.0);
 	}
 	
 	public void stopWheels() {
