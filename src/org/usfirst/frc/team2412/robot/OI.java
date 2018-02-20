@@ -56,8 +56,7 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public OI() {
-		shiftHighButton.whenPressed(new ShiftHighGearCommand());
-		shiftLowButton.whenPressed(new ShiftLowGearCommand());
+		shiftHighButton.whileHeld(new ShiftHighGearCommand());
 		climbUpButton.whileHeld(new ClimbCommand());
 		liftupbutton.whileHeld(new LiftUpCommand()); 
 		liftdownbutton.whileHeld(new LiftDownCommand());
@@ -72,8 +71,7 @@ public class OI {
 	public Joystick stick = new Joystick(0);
 	public Joystick codriver = new Joystick(1);
 	
-	public Button shiftHighButton = new JoystickButton(stick, 6);
-	public Button shiftLowButton = new JoystickButton(stick, 3);
+	public Button shiftHighButton = new JoystickButton(stick, 1);
 		
 	public Button climbUpButton = new JoystickButton(codriver, 9);
 	

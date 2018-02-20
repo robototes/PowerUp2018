@@ -3,18 +3,14 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.DriveCommand;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBaseSubsystem extends Subsystem {
 	//DifferentialDrive for driving.
 	private DifferentialDrive robotDrive = RobotMap.robotDrive;
-	//DoubleSolenoid for shifting.
-	private DoubleSolenoid shifter = RobotMap.shifter;
 	
 	//Gyroscope for turning.
 	private GyroBase gyro = RobotMap.gyro;
@@ -42,13 +38,5 @@ public class DriveBaseSubsystem extends Subsystem {
 	
 	public void resetAngle() {
 		gyro.reset();
-	}
-	
-	public void shiftHighGear() {
-		shifter.set(Value.kForward);
-	}
-	
-	public void shiftLowGear() {
-		shifter.set(Value.kReverse);
 	}
 }
