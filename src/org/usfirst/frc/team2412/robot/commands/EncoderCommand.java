@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.PlateColorChecker;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
