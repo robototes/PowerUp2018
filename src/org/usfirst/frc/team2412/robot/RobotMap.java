@@ -91,7 +91,7 @@ public class RobotMap {
 	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
 	public static int open = 5;
-	public static int close = 1;
+	public static int close = 3;
 	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
 	
 	/** SpeedControllerGroup instances */
