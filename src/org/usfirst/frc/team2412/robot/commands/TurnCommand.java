@@ -28,10 +28,8 @@ public class TurnCommand extends CommandBase {
 			return;
 		}
 		if(firstRun) {
-			if(PlateColorChecker.getStartingPosition().equals("Left")) {
-				angleToTurn = -angleToTurn;
-			}
 			firstRun = false;
+			angleToTurn = getAngleToTurn();
 		}
 		error = getError();
 		integral += (error/90d);
@@ -56,5 +54,9 @@ public class TurnCommand extends CommandBase {
 	
 	private double getError() {
 		return angleToTurn - driveBase.getAngle();
+	}
+	
+	protected double getAngleToTurn() {
+		return angleToTurn;
 	}
 }
