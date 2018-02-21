@@ -9,9 +9,9 @@ public class TurnGameDataCommand extends TurnCommand {
 
 	protected double getAngleToTurn() {
 		if(PlateColorChecker.isLeftSwitchCorrectColor()) {
-			return -super.getAngleToTurn();
-		} else {
 			return super.getAngleToTurn();
+		} else {
+			return -super.getAngleToTurn();
 		}
 	}
 }
