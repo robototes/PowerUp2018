@@ -31,8 +31,8 @@ public class EncoderGameDataCommand extends EncoderCommand {
 	// Decides which angle to turn.
 	protected double getAngleToTurn() {
 		if(PlateColorChecker.isLeftSwitchCorrectColor()) {
-			return -super.getAngleToTurn();
+			return super.getAngleToTurn();
 		}
-		return super.getAngleToTurn();
+		return -super.getAngleToTurn();
 	}
 }
