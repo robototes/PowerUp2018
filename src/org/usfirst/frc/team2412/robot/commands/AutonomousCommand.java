@@ -12,19 +12,6 @@ public class AutonomousCommand extends CommandGroup {
 //		addSequential(new DriveStage3Command(0.5, 30000, 30000, 30000, -90));
 //		addSequential(new DriveLimitSwitchCommand());
 //		addSequential(new DropCubeCommand());
-		/*
-		addSequential(new ShiftLowGearCommand());
-		addSequential(new EncoderCommand(0.5, 20000, 20000, 20000));
-		addSequential(new WaitCommand(1));
-		addSequential(new TurnCommand(-90));
-		addSequential(new EncoderCommand(0.5, 70000, 30000, 30000, -90));
-		addSequential(new WaitCommand(1));
-		addSequential(new TurnCommand(0));
-		addSequential(new EncoderCommand(0.5, 110000, 110000, 90000));
-		addSequential(new DropCubeCommand());
-		/*
-		
-		
 		
 		/*
 		addSequential(new DriveStage3Command(-0.5, 14000, 14000, 14000, -90));
