@@ -27,4 +27,12 @@ public class EncoderGameDataCommand extends EncoderCommand {
 			return distanceToDriveRight;
 		}
 	}
+	
+	// Decides which angle to turn.
+	protected double getAngleToTurn() {
+		if(PlateColorChecker.isLeftSwitchCorrectColor()) {
+			return -super.getAngleToTurn();
+		}
+		return super.getAngleToTurn();
+	}
 }
