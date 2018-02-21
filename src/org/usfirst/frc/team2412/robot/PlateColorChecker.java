@@ -52,7 +52,7 @@ public class PlateColorChecker {
 	public static boolean useDefault() {
 		String startingPosition = getStartingPosition();
 		System.out.println("Starting position: " + startingPosition);
-		return !startingPosition.equals("Left") && !startingPosition.equals("Center") && !startingPosition.equals("Right"); 
+		return !startingPosition.equals("Left") && !startingPosition.equals("Middle") && !startingPosition.equals("Right - Center") && !startingPosition.equals("Right"); 
 	}
 	
 	public static double getTimeToWait() {
