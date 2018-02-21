@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.PlateColorChecker;
+
 public class EncoderGameDataCommand extends EncoderCommand {
 
 	private double distanceToDriveLeft;
@@ -15,5 +17,14 @@ public class EncoderGameDataCommand extends EncoderCommand {
 		super(speed, 0, angle);
 		distanceToDriveLeft = leftDistance;
 		distanceToDriveRight = rightDistance;
+	}
+	
+	// Decides which distance to drive.
+	protected double getDistanceToDrive() {
+		if(PlateColorChecker.isLeftSwitchCorrectColor()) {
+			return distanceToDriveLeft;
+		} else {
+			return distanceToDriveRight;
+		}
 	}
 }
