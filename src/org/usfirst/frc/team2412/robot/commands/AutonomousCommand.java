@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new AutoMiddleSwitchCommand());
+		addSequential(new AutoMiddleSwitchLeftPlateCommand());
 		/*
 		
 //		addSequential(new IntakeDown());
