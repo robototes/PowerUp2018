@@ -6,9 +6,8 @@
 	<classpathentry exported="true" kind="var" path="opencv" sourcepath="opencv.sources"/>
 	<classpathentry exported="true" kind="var" path="cscore" sourcepath="cscore.sources"/>
 	<classpathentry exported="true" kind="var" path="wpiutil" sourcepath="wpiutil.sources"/>
-	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/CTRLib.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_161"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Timothy/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Timothy/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
