@@ -1,10 +1,8 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.PlateColorChecker;
-import org.usfirst.frc.team2412.robot.commands.DropCubeCommand;
 import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
 import org.usfirst.frc.team2412.robot.commands.IntakeDown;
-import org.usfirst.frc.team2412.robot.commands.LiftUpLimitSwitchCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
 import org.usfirst.frc.team2412.robot.commands.TurnCommand;

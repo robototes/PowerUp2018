@@ -1,6 +1,6 @@
-package org.usfirst.frc.team2412.robot.commands;
+package org.usfirst.frc.team2412.robot.commands.auto;
 
-import org.usfirst.frc.team2412.robot.commands.auto.AutoIntakeInCommand;
+import org.usfirst.frc.team2412.robot.commands.intakeClose;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

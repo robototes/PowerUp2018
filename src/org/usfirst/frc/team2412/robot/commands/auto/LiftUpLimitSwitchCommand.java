@@ -1,7 +1,8 @@
-package org.usfirst.frc.team2412.robot.commands;
+package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.PlateColorChecker;
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.CommandBase;
 
 public class LiftUpLimitSwitchCommand extends CommandBase {
 	
