@@ -7,9 +7,9 @@
 
 package org.usfirst.frc.team2412.robot;
 
-import org.usfirst.frc.team2412.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.PrintCommand;
+import org.usfirst.frc.team2412.robot.commands.auto.AutonomousCommand;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 

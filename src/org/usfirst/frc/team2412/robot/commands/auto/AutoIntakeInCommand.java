@@ -1,4 +1,6 @@
-package org.usfirst.frc.team2412.robot.commands;
+package org.usfirst.frc.team2412.robot.commands.auto;
+
+import org.usfirst.frc.team2412.robot.commands.intakeIn;
 
 public class AutoIntakeInCommand extends intakeIn {
 	private double startTime = 0;

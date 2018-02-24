@@ -1,4 +1,11 @@
-package org.usfirst.frc.team2412.robot.commands;
+package org.usfirst.frc.team2412.robot.commands.auto;
+
+import org.usfirst.frc.team2412.robot.commands.DropCubeCommand;
+import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
+import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
+import org.usfirst.frc.team2412.robot.commands.TurnCommand;
+import org.usfirst.frc.team2412.robot.commands.TurnGameDataCommand;
+import org.usfirst.frc.team2412.robot.commands.WaitCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
