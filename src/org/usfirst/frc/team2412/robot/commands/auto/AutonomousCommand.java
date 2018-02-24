@@ -19,6 +19,8 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new AutoRightSwitchCommand());
 			} else if(PlateColorChecker.isRightScaleCorrectColor()) {
 				addSequential(new AutoRightScaleCommand());
+			} else {
+				addSequential(new AutoRightNoCubeCommand());
 			}
 		}
 		/*
