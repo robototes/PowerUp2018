@@ -1,11 +1,13 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.PlateColorChecker;
+import org.usfirst.frc.team2412.robot.commands.WaitCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
+		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
 		if(PlateColorChecker.getStartingPosition().equals("Left")) {
 			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
 				addSequential(new AutoLeftSwitchCommand());
