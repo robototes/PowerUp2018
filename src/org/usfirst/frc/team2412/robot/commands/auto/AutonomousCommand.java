@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.PlateColorChecker;
+import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
 import org.usfirst.frc.team2412.robot.commands.WaitCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -30,6 +31,8 @@ public class AutonomousCommand extends CommandGroup {
 			} else if(PlateColorChecker.isRightSwitchCorrectColor()) {
 				addSequential(new AutoMiddleSwitchRightPlateCommand());
 			}
+		} else {
+			addSequential(new EncoderCommand(0.5, 12000));
 		}
 		/*
 		
