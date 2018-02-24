@@ -14,6 +14,10 @@ public class AutonomousCommand extends CommandGroup {
 			} else {
 				addSequential(new AutoLeftNoCubeCommand());
 			}
+		} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
+			if(PlateColorChecker.isRightSwitchCorrectColor()) {
+				addSequential(new AutoRightSwitchCommand());
+			}
 		}
 		/*
 		
