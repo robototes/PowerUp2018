@@ -9,6 +9,8 @@ public class AutonomousCommand extends CommandGroup {
 		if(PlateColorChecker.getStartingPosition().equals("Left")) {
 			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
 				addSequential(new AutoLeftSwitchCommand());
+			} else if(PlateColorChecker.isLeftScaleCorrectColor()) {
+				addSequential(new AutoLeftScaleCommand());
 			}
 		}
 		/*
