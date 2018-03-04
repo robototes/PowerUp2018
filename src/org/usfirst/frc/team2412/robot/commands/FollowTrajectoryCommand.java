@@ -34,4 +34,9 @@ public class FollowTrajectoryCommand extends CommandBase {
 	private double getDistanceFeetLeft() {
 		return RobotMap.talons[2].getSelectedSensorPosition(0) * encoderToFeetConversionLeft;
 	}
+	
+	//Gets the distance that the robot's right side has traveled in feet.
+	private double getDistanceFeetRight() {
+		return RobotMap.talons[3].getSelectedSensorPosition(0) * encoderToFeetConversionRight;
+	}
 }
