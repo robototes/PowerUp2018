@@ -2,6 +2,8 @@ package org.usfirst.frc.team2412.robot.commands;
 
 import java.io.File;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.followers.DistanceFollower;
@@ -9,6 +11,9 @@ import jaci.pathfinder.followers.DistanceFollower;
 public class FollowTrajectoryCommand extends CommandBase {
 	private DistanceFollower leftFollower;
 	private DistanceFollower rightFollower;
+	
+	private final double encoderToFeetConversionLeft = 7.85873969816273e-4; //TODO Calibrate this value.
+	private final double encoderToFeetConversionRight = 7.85873969816273e-4; //TODO Calibrate this value.
 	
 	public FollowTrajectoryCommand(String trajectoryName, double maxVelocity) {
 		requires(driveBase);
@@ -24,5 +29,9 @@ public class FollowTrajectoryCommand extends CommandBase {
 		leftFollower.configurePIDVA(1.0, 0.0, 0.0, 1 / maxVelocity, 0);
 		rightFollower.configurePIDVA(1.0, 0.0, 0.0, 1 / maxVelocity, 0);
 	}
-
+	
+	//Gets the distance that the robot's left side has traveled in feet.
+	private double getDistanceFeetLeft() {
+		return RobotMap.talons[2].getSelectedSensorPosition(0) * encoderToFeetConversionLeft;
+	}
 }
