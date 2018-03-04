@@ -3,6 +3,8 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.DriveCommand;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,6 +13,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class DriveBaseSubsystem extends Subsystem {
 	//DifferentialDrive for driving.
 	private DifferentialDrive robotDrive = RobotMap.robotDrive;
+	//TalonSRXs for driving.
+	private WPI_TalonSRX talons[] = RobotMap.talons;
 	
 	//Gyroscope for turning.
 	private GyroBase gyro = RobotMap.gyro;
@@ -38,5 +42,17 @@ public class DriveBaseSubsystem extends Subsystem {
 	
 	public void resetAngle() {
 		gyro.reset();
+	}
+	
+	public void setSideSpeeds(double leftSpeed, double rightSpeed) {
+		robotDrive.setSafetyEnabled(false);
+		
+		talons[0].set(leftSpeed);
+		talons[2].set(leftSpeed);
+		talons[4].set(leftSpeed);
+		
+		talons[1].set(rightSpeed);
+		talons[3].set(rightSpeed);
+		talons[5].set(rightSpeed);
 	}
 }
