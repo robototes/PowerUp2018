@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class IntakeSubsystem extends Subsystem 
 {
-	private DigitalInput limitSwitch = RobotMap.limitSwitch;
 	private DoubleSolenoid upDown = RobotMap.upDown;
 	private DoubleSolenoid openClose = RobotMap.openClose;
 	
