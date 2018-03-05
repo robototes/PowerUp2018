@@ -130,8 +130,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//System.out.println("Position (left): " + RobotMap.talons[2].getSelectedSensorPosition(0));
-		//System.out.println("Position: (right): " + RobotMap.talons[3].getSelectedSensorPosition(0));
+		System.out.println("Position (left): " + RobotMap.talons[2].getSelectedSensorPosition(0));
+		System.out.println("Position: (right): " + RobotMap.talons[3].getSelectedSensorPosition(0));
 	}
 
 	/**
