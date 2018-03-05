@@ -30,6 +30,18 @@ public class FollowTrajectoryCommand extends CommandBase {
 		rightFollower.configurePIDVA(1.0, 0.0, 0.0, 1 / maxVelocity, 0);
 	}
 	
+	// Called repeatedly when this Command is scheduled to run
+	@Override
+	protected void execute() {
+		double leftDistance = getDistanceFeetLeft();
+		double leftSpeed = leftFollower.calculate(leftDistance);
+		
+		double rightDistance = getDistanceFeetRight();
+		double rightSpeed = rightFollower.calculate(rightDistance);
+		
+		driveBase.setSideSpeeds(leftSpeed, rightSpeed);
+	}
+	
 	//Gets the distance that the robot's left side has traveled in feet.
 	private double getDistanceFeetLeft() {
 		return RobotMap.talons[2].getSelectedSensorPosition(0) * encoderToFeetConversionLeft;
