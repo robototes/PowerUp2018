@@ -18,11 +18,11 @@ public class FollowTrajectoryCommand extends CommandBase {
 	public FollowTrajectoryCommand(String trajectoryName, double maxVelocity) {
 		requires(driveBase);
 		
-		File leftPathFile = new File("D:\\Paths\\Generated\\Left Switch_left_detailed.csv");
+		File leftPathFile = new File(trajectoryName + "_left_detailed.csv");
 		Trajectory leftTrajectory = Pathfinder.readFromCSV(leftPathFile);
 		leftFollower = new DistanceFollower(leftTrajectory);
 		
-		File rightPathFile = new File("D:\\Paths\\Generated\\Left Switch_left_detailed.csv");
+		File rightPathFile = new File(trajectoryName +  "_right_detailed.csv");
 		Trajectory rightTrajectory = Pathfinder.readFromCSV(rightPathFile);
 		rightFollower = new DistanceFollower(rightTrajectory);
 		
