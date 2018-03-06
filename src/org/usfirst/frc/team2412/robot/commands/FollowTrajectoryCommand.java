@@ -12,8 +12,8 @@ public class FollowTrajectoryCommand extends CommandBase {
 	private DistanceFollower leftFollower;
 	private DistanceFollower rightFollower;
 	
-	private final double encoderToFeetConversionLeft = 7.85873969816273e-4; //TODO Calibrate this value.
-	private final double encoderToFeetConversionRight = 7.85873969816273e-4; //TODO Calibrate this value.
+	private final double encoderToFeetConversionLeft = 52285.0 / 10;
+	private final double encoderToFeetConversionRight = 51939.0 / 10;
 	
 	public FollowTrajectoryCommand(String trajectoryName, double maxVelocity) {
 		requires(driveBase);
