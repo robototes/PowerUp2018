@@ -46,12 +46,12 @@ public class FollowTrajectoryCommand extends CommandBase {
 		double leftSpeed = -leftFollower.calculate(leftDistance);
 		
 		double rightDistance = getDistanceFeetRight();
-		double rightSpeed = -rightFollower.calculate(rightDistance);
+		double rightSpeed = rightFollower.calculate(rightDistance);
 		
 		System.out.println("Left distance: " + getDistanceFeetLeft());
 		System.out.println("Right distance: " + getDistanceFeetRight());
 		
-//		driveBase.setSideSpeeds(leftSpeed, rightSpeed);
+		driveBase.setSideSpeeds(leftSpeed, rightSpeed);
 	}
 	
 	//Gets the distance that the robot's left side has traveled in feet.
