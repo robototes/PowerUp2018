@@ -51,4 +51,9 @@ public class FollowTrajectoryCommand extends CommandBase {
 	private double getDistanceFeetRight() {
 		return RobotMap.talons[3].getSelectedSensorPosition(0) * encoderToFeetConversionRight;
 	}
+	
+	@Override
+	protected boolean isFinished() {
+		return leftFollower.isFinished() && rightFollower.isFinished();
+	}
 }
