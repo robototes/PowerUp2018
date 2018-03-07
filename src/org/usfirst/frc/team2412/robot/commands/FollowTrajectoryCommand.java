@@ -34,10 +34,10 @@ public class FollowTrajectoryCommand extends CommandBase {
 	@Override
 	protected void execute() {
 		double leftDistance = getDistanceFeetLeft();
-		double leftSpeed = leftFollower.calculate(leftDistance);
+		double leftSpeed = -leftFollower.calculate(leftDistance);
 		
 		double rightDistance = getDistanceFeetRight();
-		double rightSpeed = rightFollower.calculate(rightDistance);
+		double rightSpeed = -rightFollower.calculate(rightDistance);
 		
 		driveBase.setSideSpeeds(leftSpeed, rightSpeed);
 	}
