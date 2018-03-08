@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class IntakeSubsystem extends Subsystem 
 {
-//	private DoubleSolenoid upDown = RobotMap.upDown;
 //	private DoubleSolenoid openClose = RobotMap.openClose;
 	
 	private WPI_TalonSRX left = RobotMap.left;
@@ -32,16 +31,6 @@ public class IntakeSubsystem extends Subsystem
 		right.set(0.0);
 	}
 	
-	public void intakeup()
-	{
-//		upDown.set(DoubleSolenoid.Value.kForward);
-	}
-	
-	public void intakeDown()
-	{
-//		upDown.set(DoubleSolenoid.Value.kReverse);
-	}
-
 
 	public void intakeOpen()
 	{
