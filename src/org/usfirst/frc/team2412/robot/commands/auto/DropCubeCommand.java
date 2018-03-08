@@ -10,7 +10,7 @@ public class DropCubeCommand extends CommandBase {
 	private boolean firstRun = true;
 	
 	public DropCubeCommand() {
-		requires(intake);
+		requires(intakeInOut);
 	}
 	
 	@Override
@@ -22,13 +22,13 @@ public class DropCubeCommand extends CommandBase {
 		if(startTime == 0) {
 			startTime = getTimeSeconds();
 		}
-		intake.spinWheelsOut();
+		intakeInOut.spinWheelsOut();
 		System.out.println("Dropping cube...");
 	}
 	
 	@Override
 	protected void end() {
-		intake.stopWheels();
+		intakeInOut.stopWheels();
 		startTime = 0;
 	}
 	

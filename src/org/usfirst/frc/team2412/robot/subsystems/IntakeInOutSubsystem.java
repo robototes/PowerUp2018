@@ -6,12 +6,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class IntakeSubsystem extends Subsystem 
-{
+public class IntakeInOutSubsystem extends Subsystem {
 	
 	private WPI_TalonSRX left = RobotMap.left;
 	private WPI_TalonSRX right = RobotMap.right;
-	
 	
 	public void spinWheelsIn()
 	{
@@ -30,9 +28,9 @@ public class IntakeSubsystem extends Subsystem
 		right.set(0.0);
 	}
 	
-	protected void initDefaultCommand() 
-	{
-		
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
 
 	}
 
