@@ -80,8 +80,10 @@ public class OI {
 	
 	public Button buttonUp = new JoystickButton(codriver, 12);
 	public Button buttonDown = new JoystickButton(codriver, 4);
-	public Button buttonIn = new JoystickButton(codriver, 1);
-	public Button buttonOut = new JoystickButton(codriver, 2);
+	
+	public Button buttonIn = new JoystickButton(stick, 4);
+	public Button buttonOut = new JoystickButton(stick, 5);
+	
 	public Button buttonOpen = new JoystickButton(codriver, 8);
 	public Button buttonClose = new JoystickButton(codriver, 7);
 }
