@@ -13,7 +13,6 @@ import org.usfirst.frc.team2412.robot.commands.IntakeUp;
 import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
 import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
-import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
 import org.usfirst.frc.team2412.robot.commands.intakeClose;
 import org.usfirst.frc.team2412.robot.commands.intakeIn;
 import org.usfirst.frc.team2412.robot.commands.intakeOpen;
