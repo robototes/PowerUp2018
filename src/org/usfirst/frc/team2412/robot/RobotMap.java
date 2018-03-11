@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -87,11 +88,11 @@ public class RobotMap {
 	//Coding for cylinders.
 	public static int up = 4;
 	public static int down = 0;
-//	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
 	public static int open = 5;
 	public static int close = 3;
-//	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
+	public static DoubleSolenoid openClose = new DoubleSolenoid(open, close);
 	
 	/** SpeedControllerGroup instances */
 	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(talons[0], talons[2], talons[4]);
@@ -111,5 +112,5 @@ public class RobotMap {
 	public static int shifterIDReverse = 2;
 	
 	/** DoubleSolenoid for shifting gearboxes */
-//	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
+	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
 }
