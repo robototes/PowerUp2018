@@ -5,12 +5,12 @@ public class intakeClose extends CommandBase
 {
 	public intakeClose()
 	{
-		requires(intake);
+		requires(intakeOpenClose);
 	}
 	
 	public void execute()
 	{
-		intake.intakeClose();
+		intakeOpenClose.intakeClose();
 	}
 	
 	@Override

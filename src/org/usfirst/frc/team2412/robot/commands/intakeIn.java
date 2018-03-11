@@ -5,13 +5,13 @@ public class intakeIn extends CommandBase
 {
 	public intakeIn()
 	{
-		requires(intake);
+		requires(intakeInOut);
 	}
 	public void execute()
 	{
-		intake.spinWheelsIn();
+		intakeInOut.spinWheelsIn();
 	}
 	protected void end() {
-		intake.stopWheels();
+		intakeInOut.stopWheels();
 	}
 }

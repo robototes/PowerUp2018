@@ -5,12 +5,12 @@ public class IntakeDown extends CommandBase
 {
 	public IntakeDown()
 	{
-		requires(intake);
+		requires(intakeUpDown);
 	}
 	
 	public void execute()
 	{
-		intake.intakeDown();
+		intakeUpDown.intakeDown();
 	}
 	
 	@Override
