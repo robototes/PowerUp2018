@@ -7,10 +7,12 @@
 	<classpathentry exported="true" kind="var" path="cscore" sourcepath="cscore.sources"/>
 	<classpathentry exported="true" kind="var" path="wpiutil" sourcepath="wpiutil.sources"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Timothy/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Timothy/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix-sources.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/Pathfinder-Java-1.8.jar"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eric_/wpilib/user/java/lib/Pathfinder-Java-1.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
