@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.ClimbSteadyCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -12,8 +13,7 @@ private WPI_TalonSRX[] climbermotors = RobotMap.climberstalons;
 
  @Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-
+		setDefaultCommand(new ClimbSteadyCommand());
 	}
 public void climbUp() {
 	climbermotors[0].set(1);
