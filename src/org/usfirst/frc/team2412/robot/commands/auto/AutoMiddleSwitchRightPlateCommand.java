@@ -18,7 +18,7 @@ public class AutoMiddleSwitchRightPlateCommand extends CommandGroup {
 		
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0));
-		addSequential(new EncoderCommand(-0.75, 110000));
+		addSequential(new EncoderCommand(-0.75, 130000));
 		addSequential(new DropCubeCommand());
 	}
 }
