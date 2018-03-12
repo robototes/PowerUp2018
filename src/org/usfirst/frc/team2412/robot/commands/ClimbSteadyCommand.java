@@ -5,7 +5,7 @@ public ClimbSteadyCommand() {
 	requires(climber);
 }
 protected void execute() {
-	climber.climbUp();
+	climber.stopClimb();
 }
 protected boolean isFinished() {
 	return false;
