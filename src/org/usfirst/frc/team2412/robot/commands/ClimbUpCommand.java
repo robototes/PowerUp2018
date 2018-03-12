@@ -10,7 +10,4 @@ protected void execute() {
 protected boolean isFinished() {
 	return false;
 }
-protected void end() {
-	climber.stopClimb();
-}
 }
