@@ -34,7 +34,7 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new AutoMiddleSwitchRightPlateCommand());
 			}
 		} else {
-			addSequential(new EncoderCommand(0.5, 12000));
+			addSequential(new EncoderCommand(-0.5, 12000));
 		}
 		/*
 		
