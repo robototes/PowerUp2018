@@ -15,7 +15,7 @@ private WPI_TalonSRX[] climbermotors = RobotMap.climberstalons;
 		// TODO Auto-generated method stub
 
 	}
-public void climb() {
+public void climbUp() {
 	climbermotors[0].set(1);
     climbermotors[1].set(1);
 }

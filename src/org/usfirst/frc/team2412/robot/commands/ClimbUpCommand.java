@@ -5,7 +5,7 @@ public ClimbUpCommand() {
 	requires(climber);
 }
 protected void execute() {
-	climber.climb();
+	climber.climbUp();
 }
 protected boolean isFinished() {
 	return false;
