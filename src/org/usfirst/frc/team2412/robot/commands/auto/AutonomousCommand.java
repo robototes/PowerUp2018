@@ -1,15 +1,14 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
-import org.usfirst.frc.team2412.robot.PlateColorChecker;
-import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
-import org.usfirst.frc.team2412.robot.commands.WaitCommand;
+import org.usfirst.frc.team2412.robot.commands.FollowTrajectoryCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		//addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 4));
+		addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 4));
 		
+		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
 		if(PlateColorChecker.getStartingPosition().equals("Left")) {
 			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
