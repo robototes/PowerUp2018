@@ -48,10 +48,16 @@ public class FollowTrajectoryCommand extends CommandBase {
 		double rightDistance = getDistanceFeetRight();
 		double rightSpeed = rightFollower.calculate(rightDistance);
 		
+		double heading = driveBase.getAngle();
+		double desiredHeading = Pathfinder.r2d(leftFollower.getHeading());
+		
+		double angleDifference = Pathfinder.boundHalfDegrees(desiredHeading - heading);
+		double turn = 0.8 * (-1.0/80.0) * angleDifference;
+		
 		System.out.println("Left distance: " + getDistanceFeetLeft());
 		System.out.println("Right distance: " + getDistanceFeetRight());
 		
-		driveBase.setSideSpeeds(leftSpeed, rightSpeed);
+		driveBase.setSideSpeeds(leftSpeed + turn, rightSpeed - turn);
 	}
 	
 	//Gets the distance that the robot's left side has traveled in feet.
