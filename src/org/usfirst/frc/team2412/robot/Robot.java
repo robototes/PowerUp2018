@@ -94,6 +94,7 @@ public class Robot extends TimedRobot {
 		System.out.println(selected);
 		
 		CommandBase.driveBase.resetAngle();
+		setPeriod(0.05);
 		
 	}
 
