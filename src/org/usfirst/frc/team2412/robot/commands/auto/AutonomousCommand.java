@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 1));
+		addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 5));
 		
 		/*
 		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
