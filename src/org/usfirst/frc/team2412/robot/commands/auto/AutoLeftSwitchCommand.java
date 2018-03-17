@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoLeftSwitchCommand extends CommandGroup {
 	public AutoLeftSwitchCommand() {
-		addSequential(new EncoderCommand(-0.5, 120000)); //Right-center is 120000
+		addSequential(new EncoderCommand(-0.5, 200000)); //Right-center is 120000
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand());
 		addSequential(new EncoderCommand(-0.5, 14000, -90));
