@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoLeftNoCubeCommand extends CommandGroup {
 	public AutoLeftNoCubeCommand() {
-		addSequential(new EncoderCommand(0.5, 120000)); //TODO check distances.
+		addSequential(new EncoderCommand(-0.5, 120000)); //TODO check distances.
 //		addSequential(new WaitCommand(1));
 //		addSequential(new TurnCommand());
-//		addSequential(new EncoderCommand(0.5, 200000, -90));
+//		addSequential(new EncoderCommand(-0.5, 200000, -90));
 	}
 }

@@ -12,13 +12,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoRightScaleCommand extends CommandGroup {
 	public AutoRightScaleCommand() {
 		addSequential(new ShiftHighGearCommand());
-		addSequential(new EncoderCommand(0.8, 460000, 2));
+		addSequential(new EncoderCommand(-0.8, 460000, 2));
 		addSequential(new ShiftLowGearCommand());
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(80));
 		addSequential(new IntakeDown()); //TODO COMMENT OUT THIS LINE WHEN WE'RE AT SAMMAMISH
 		addSequential(new LiftUpLimitSwitchCommand());
-		addSequential(new EncoderCommand(0.2, 20000, 90));
+		addSequential(new EncoderCommand(-0.2, 20000, 90));
 		addSequential(new DropCubeCommand());
 	}
 }
