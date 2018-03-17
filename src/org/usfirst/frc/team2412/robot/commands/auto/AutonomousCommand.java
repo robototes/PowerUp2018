@@ -14,17 +14,17 @@ public class AutonomousCommand extends CommandGroup {
 		if(PlateColorChecker.getStartingPosition().equals("Left")) {
 			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
 				addSequential(new AutoLeftSwitchCommand());
-			} else if(PlateColorChecker.isLeftScaleCorrectColor()) {
+			} /*else if(PlateColorChecker.isLeftScaleCorrectColor()) {
 				addSequential(new AutoLeftScaleCommand());
-			} else {
+			} */else {
 				addSequential(new AutoLeftNoCubeCommand());
 			}
 		} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
 			if(PlateColorChecker.isRightSwitchCorrectColor()) {
 				addSequential(new AutoRightSwitchCommand());
-			} else if(PlateColorChecker.isRightScaleCorrectColor()) {
+			} /*else if(PlateColorChecker.isRightScaleCorrectColor()) {
 				addSequential(new AutoRightScaleCommand());
-			} else {
+			} */else {
 				addSequential(new AutoRightNoCubeCommand());
 			}
 		} else if(PlateColorChecker.getStartingPosition().equals("Middle")) {
