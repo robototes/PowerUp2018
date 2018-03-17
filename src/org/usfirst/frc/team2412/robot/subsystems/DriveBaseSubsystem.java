@@ -33,7 +33,7 @@ public class DriveBaseSubsystem extends Subsystem {
 	}
 	
 	public void drive(double y, double x, boolean squaredInputs) {
-		robotDrive.arcadeDrive(y, Math.pow(x, 3.0), squaredInputs);
+		robotDrive.arcadeDrive(y, Math.pow(x, 5.0)*0.5, squaredInputs);
 	}
 	
 	public double getAngle() {
