@@ -47,12 +47,12 @@ public class RobotMap {
 		// -----------//
 		//     BACK   //
 		// [value] [description]
-		// 3 front-left
-		// 10 middle-left (has encoder)
-		// 2 back-left
-		// 9 front-right
-		// 5 middle-right (has encoder)
-		// 1 back-right
+		// 5 front-left
+		// 9 back-left (has encoder)
+		// 1 middle-left
+		// 2 front-right
+		// 3 back-right (has encoder)
+		// 10 middle-right
 	};
 	
 	/** WPI_TalonSRX instances */
