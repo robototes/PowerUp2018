@@ -16,12 +16,12 @@ public class IntakeOpenCloseSubsystem extends Subsystem {
 
 	public void intakeOpen()
 	{
-		openClose.set(DoubleSolenoid.Value.kForward);
+		openClose.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void intakeClose()
 	{
-		openClose.set(DoubleSolenoid.Value.kReverse);
+		openClose.set(DoubleSolenoid.Value.kForward);
 	}
 	
 }
