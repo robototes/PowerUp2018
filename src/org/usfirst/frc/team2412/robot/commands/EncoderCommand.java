@@ -11,7 +11,7 @@ public class EncoderCommand extends CommandBase {
 	
 	private double distanceToDrive = 0;
 	
-	private final double Kp = 2;
+	private double Kp = 2;
 	
 	private double angleToTurn = 0;
 	
@@ -27,6 +27,11 @@ public class EncoderCommand extends CommandBase {
 	public EncoderCommand(double speed, double driveDistance, double angle) {
 		this(speed, driveDistance);
 		angleToTurn = angle;
+	}
+	
+	public EncoderCommand(double speed, double driveDistance, double angle, double p) {
+		this(speed, driveDistance, angle);
+		Kp = p;
 	}
 
 	// Called just before this Command runs the first time
