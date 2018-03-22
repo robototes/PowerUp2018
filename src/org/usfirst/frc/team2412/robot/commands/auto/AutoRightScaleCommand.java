@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoRightScaleCommand extends CommandGroup {
 	public AutoRightScaleCommand() {
-//		addSequential(new ShiftHighGearCommand());
-		addSequential(new EncoderCommand(-0.5, 460000, 2));
-//		addSequential(new ShiftLowGearCommand());
+		addSequential(new EncoderCommand(-0.7, 400000, 0, 4));
 		addSequential(new WaitCommand(1));
-		addSequential(new TurnCommand(80));
-		addSequential(new IntakeDown()); //TODO COMMENT OUT THIS LINE WHEN WE'RE AT SAMMAMISH
+		addSequential(new TurnCommand(-45, 1.5, 0.02));
 		addSequential(new LiftUpLimitSwitchCommand());
-		addSequential(new EncoderCommand(-0.2, 20000, 90));
 		addSequential(new DropCubeCommand());
+		/*
+		addSequential(new IntakeDown()); //TODO COMMENT OUT THIS LINE WHEN WE'RE AT SAMMAMISH
+		addSequential(new EncoderCommand(-0.2, 20000, 90));
+		*/
 	}
 }
