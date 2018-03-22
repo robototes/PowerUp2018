@@ -13,7 +13,7 @@ public class AutoMiddleSwitchLeftPlateCommand extends CommandGroup {
 		addSequential(new EncoderCommand(-0.7, 20000));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(-90));
-		addSequential(new EncoderCommand(-0.7, 60000, -90));
+		addSequential(new EncoderCommand(-0.7, 70000, -90));
 //		addSequential(new EncoderCommand(-0.5, 70000, 30000, 30000, 90));
 		
 		addSequential(new WaitCommand(1));
