@@ -4,8 +4,8 @@ import org.usfirst.frc.team2412.robot.PlateColorChecker;
 
 public class TurnCommand extends CommandBase {
 	private boolean firstRun = true;
-	private final double Kp = 1.1; /* 1.1 is close (10 degrees short) */
-	private final double Ki = 0.005;
+	private final double Kp = 1.0; /* 1.1 is close (10 degrees short) */
+	private final double Ki = 0.0075;
 	
 	private double previousError = 0;
 	private double error = 0;
