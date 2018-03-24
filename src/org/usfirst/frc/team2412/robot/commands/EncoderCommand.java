@@ -59,6 +59,8 @@ public class EncoderCommand extends CommandBase {
 			distanceToDrive = getDistanceToDrive();
 			angleToTurn = getAngleToTurn();
 		}
+		System.out.println("RUNNING ENCODERCOMMAND");
+		System.out.println("DRIVING TO: " + distanceToDrive);
 		System.out.println("Left: " + Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
 		System.out.println("Right: " + Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
 		driveBase.drive(driveSpeed, -Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
