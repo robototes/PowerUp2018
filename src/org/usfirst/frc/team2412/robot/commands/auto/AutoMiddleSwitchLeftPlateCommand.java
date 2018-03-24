@@ -2,6 +2,7 @@ package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftLowGearCommand;
+import org.usfirst.frc.team2412.robot.commands.TimedEncoderCommand;
 import org.usfirst.frc.team2412.robot.commands.TurnCommand;
 import org.usfirst.frc.team2412.robot.commands.WaitCommand;
 
@@ -18,7 +19,7 @@ public class AutoMiddleSwitchLeftPlateCommand extends CommandGroup {
 		
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0));
-		addSequential(new EncoderCommand(-0.7, 90000));
+		addSequential(new TimedEncoderCommand(-0.7, 90000, 0, 2, 5E9));
 		addSequential(new DropCubeCommand());
 	}
 }
