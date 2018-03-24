@@ -18,6 +18,6 @@ public class TimedEncoderCommand extends EncoderCommand {
 	
 	@Override
 	protected boolean isFinished() {
-		return super.isFinished() && (System.nanoTime() - startTime) < timeElapsed;
+		return (System.nanoTime() - startTime) < timeElapsed || super.isFinished();
 	}
 }
