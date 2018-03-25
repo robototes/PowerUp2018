@@ -12,6 +12,7 @@ import org.usfirst.frc.team2412.robot.commands.PrintCommand;
 import org.usfirst.frc.team2412.robot.commands.auto.AutonomousCommand;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -95,6 +96,9 @@ public class Robot extends TimedRobot {
 		
 		CommandBase.driveBase.resetAngle();
 		
+		for(WPI_TalonSRX talon : RobotMap.talons) {
+			talon.enableVoltageCompensation(true);
+		}
 	}
 
 	/**
