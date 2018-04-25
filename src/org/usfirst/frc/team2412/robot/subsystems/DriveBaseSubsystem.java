@@ -34,7 +34,7 @@ public class DriveBaseSubsystem extends Subsystem {
 	
 	public void drive(double y, double x, boolean squaredInputs) {
 		if(squaredInputs) {
-			robotDrive.arcadeDrive(y, Math.pow(x, 5.0)*0.5);
+			robotDrive.arcadeDrive(y, Math.pow(x, 3.0));
 		} else {
 			robotDrive.arcadeDrive(y, x);
 		}
