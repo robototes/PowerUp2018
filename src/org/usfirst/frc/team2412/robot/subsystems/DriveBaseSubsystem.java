@@ -8,10 +8,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-public class DriveBaseSubsystem extends Subsystem {
+public class DriveBaseSubsystem extends PIDSubsystem {
 	// DifferentialDrive for driving.
 	private DifferentialDrive robotDrive = RobotMap.robotDrive;
 	
@@ -30,6 +31,7 @@ public class DriveBaseSubsystem extends Subsystem {
 	private double startingValueRight = 0;
 	
 	public DriveBaseSubsystem() {
+		super(0.05, 0.0, 0.0); // Default PID values.
 		leftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		leftTalon.setSelectedSensorPosition(0, 0, 0);
 		
@@ -99,5 +101,16 @@ public class DriveBaseSubsystem extends Subsystem {
 	
 	public void resetRightEncoder() {
 		startingValueRight = getRawRightEncoderValue();
+	}
+	
+	// PID-related methods.
+	@Override
+	protected double returnPIDInput() {
+		return getLeftEncoderValue();
+	}
+
+	@Override
+	protected void usePIDOutput(double output) {
+		//TODO Do something here.
 	}
 }
