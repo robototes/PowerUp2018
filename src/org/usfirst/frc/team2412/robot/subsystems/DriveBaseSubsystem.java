@@ -29,6 +29,12 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
 	
+	// Angle to turn to.
+	private double turnAngle = 0;
+	
+	// P for turning.
+	private double Tp = 2;
+	
 	public DriveBaseSubsystem() {
 		super(0.05, 0.0, 0.0); // Default PID values.
 		leftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
@@ -77,6 +83,10 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 		gyro.reset();
 	}
 	
+	public void setTurnAngle(double newAngle) {
+		turnAngle = newAngle;
+	}
+	
 	// Encoder-related methods.
 	public double getRawLeftEncoderValue() {
 		return leftTalon.getSelectedSensorPosition(0);
@@ -110,6 +120,8 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 
 	@Override
 	protected void usePIDOutput(double output) {
-		//TODO Do something here.
+		double angleError = turnAngle - getAngle();
+		double turn = Tp * angleError / 90;
+		drive(output, turn, false);
 	}
 }
