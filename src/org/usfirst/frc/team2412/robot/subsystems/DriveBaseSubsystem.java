@@ -12,19 +12,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBaseSubsystem extends Subsystem {
-	//DifferentialDrive for driving.
+	// DifferentialDrive for driving.
 	private DifferentialDrive robotDrive = RobotMap.robotDrive;
-	//TalonSRXs for driving.
+	
+	// TalonSRXs for driving.
 	private WPI_TalonSRX talons[] = RobotMap.talons;
 	
-	//Gyroscope for turning.
+	// Gyroscope for turning.
 	private GyroBase gyro = RobotMap.gyro;
 	
-	//TalonSRXs with encoders.
+	// TalonSRXs with encoders.
 	private WPI_TalonSRX leftTalon = talons[2];
 	private WPI_TalonSRX rightTalon = talons[3];
 	
-	//Initial encoder values.
+	// Initial encoder values.
 	private double startingValueLeft = 0;
 	private double startingValueRight = 0;
 	
@@ -41,6 +42,7 @@ public class DriveBaseSubsystem extends Subsystem {
 		setDefaultCommand(new DriveCommand());
 	}
 	
+	// Driving-related methods.
 	public void drive(Joystick stick) {
 		robotDrive.arcadeDrive(stick.getY(), Math.pow(-stick.getTwist(), 3.0), true);
 	}
@@ -53,7 +55,19 @@ public class DriveBaseSubsystem extends Subsystem {
 		}
 	}
 	
-	//Gyro-related functions.
+	public void setSideSpeeds(double leftSpeed, double rightSpeed) {
+		robotDrive.setSafetyEnabled(false);
+		
+		talons[0].set(leftSpeed);
+		talons[2].set(leftSpeed);
+		talons[4].set(leftSpeed);
+		
+		talons[1].set(rightSpeed);
+		talons[3].set(rightSpeed);
+		talons[5].set(rightSpeed);
+	}
+	
+	// Gyro-related methods.
 	public double getAngle() {
 		return gyro.getAngle();
 	}
@@ -62,7 +76,7 @@ public class DriveBaseSubsystem extends Subsystem {
 		gyro.reset();
 	}
 	
-	//Encoder-related functions.
+	// Encoder-related methods.
 	public double getRawLeftEncoderValue() {
 		return leftTalon.getSelectedSensorPosition(0);
 	}
@@ -85,17 +99,5 @@ public class DriveBaseSubsystem extends Subsystem {
 	
 	public void resetRightEncoder() {
 		startingValueRight = getRawRightEncoderValue();
-	}
-	
-	public void setSideSpeeds(double leftSpeed, double rightSpeed) {
-		robotDrive.setSafetyEnabled(false);
-		
-		talons[0].set(leftSpeed);
-		talons[2].set(leftSpeed);
-		talons[4].set(leftSpeed);
-		
-		talons[1].set(rightSpeed);
-		talons[3].set(rightSpeed);
-		talons[5].set(rightSpeed);
 	}
 }
