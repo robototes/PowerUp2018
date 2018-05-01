@@ -1,8 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
 public class EncoderCommand extends CommandBase {
-	private boolean firstRun = true;
-	
 	private double distanceToDrive = 0;
 	
 	private double Kp = 2;
@@ -39,11 +37,6 @@ public class EncoderCommand extends CommandBase {
 		if(exitEarly()) {
 			return;
 		}
-		if(firstRun) {
-			firstRun = false;
-			distanceToDrive = getDistanceToDrive();
-			angleToTurn = getAngleToTurn();
-		}
 		System.out.println("RUNNING ENCODERCOMMAND");
 		System.out.println("DRIVING TO: " + distanceToDrive);
 		System.out.println("Left: " + Math.abs(driveBase.getLeftEncoderValue()));
@@ -57,12 +50,6 @@ public class EncoderCommand extends CommandBase {
 		return exitEarly() || Math.abs(driveBase.getLeftEncoderValue()) > Math.abs(distanceToDrive) && Math.abs(driveBase.getRightEncoderValue()) > Math.abs(distanceToDrive);
 	}
 
-	// Called once after isFinished returns true
-	@Override
-	protected void end() {
-		firstRun = true;
-	}
-
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
@@ -72,15 +59,5 @@ public class EncoderCommand extends CommandBase {
 	// If we need to exit the command early.
 	protected boolean exitEarly() {
 		return false;
-	}
-	
-	// Decides which distance to drive.
-	protected double getDistanceToDrive() {
-		return distanceToDrive;
-	}
-	
-	// Decides which angle to turn.
-	protected double getAngleToTurn() {
-		return angleToTurn;
 	}
 }
