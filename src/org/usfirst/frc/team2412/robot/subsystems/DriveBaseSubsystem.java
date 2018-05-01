@@ -3,6 +3,7 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.DriveCommand;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.GyroBase;
@@ -19,8 +20,20 @@ public class DriveBaseSubsystem extends Subsystem {
 	//Gyroscope for turning.
 	private GyroBase gyro = RobotMap.gyro;
 	
+	//TalonSRXs with encoders.
+	private WPI_TalonSRX leftTalon = talons[2];
+	private WPI_TalonSRX rightTalon = talons[3];
+	
+	//Initial encoder values.
+	private double startingValueLeft = 0;
+	private double startingValueRight = 0;
+	
 	public DriveBaseSubsystem() {
-		// TODO Auto-generated constructor stub
+		leftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		leftTalon.setSelectedSensorPosition(0, 0, 0);
+		
+		rightTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		rightTalon.setSelectedSensorPosition(0, 0, 0);
 	}
 	
 	@Override
@@ -40,12 +53,38 @@ public class DriveBaseSubsystem extends Subsystem {
 		}
 	}
 	
+	//Gyro-related functions.
 	public double getAngle() {
 		return gyro.getAngle();
 	}
 	
 	public void resetAngle() {
 		gyro.reset();
+	}
+	
+	//Encoder-related functions.
+	public double getRawLeftEncoderValue() {
+		return leftTalon.getSelectedSensorPosition(0);
+	}
+	
+	public double getLeftEncoderValue() {
+		return getRawLeftEncoderValue() - startingValueLeft;
+	}
+	
+	public void resetLeftEncoder() {
+		startingValueLeft = getRawLeftEncoderValue();
+	}
+	
+	public double getRawRightEncoderValue() {
+		return rightTalon.getSelectedSensorPosition(0);
+	}
+	
+	public double getRightEncoderValue() {
+		return getRawRightEncoderValue() - startingValueRight;
+	}
+	
+	public void resetRightEncoder() {
+		startingValueRight = getRawRightEncoderValue();
 	}
 	
 	public void setSideSpeeds(double leftSpeed, double rightSpeed) {

@@ -6,8 +6,6 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 public class EncoderCommand extends CommandBase {
 	private boolean firstRun = true;
-	private double startingValueLeft = 0;
-	private double startingValueRight = 0;
 	
 	private double distanceToDrive = 0;
 	
@@ -34,13 +32,6 @@ public class EncoderCommand extends CommandBase {
 		Kp = p;
 	}
 
-	// Called just before this Command runs the first time
-	@Override
-	protected void initialize() {
-		RobotMap.talons[2].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-		RobotMap.talons[3].configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-	}
-	
 	@Override
 	public void start() {
 		super.start();
@@ -53,23 +44,21 @@ public class EncoderCommand extends CommandBase {
 			return;
 		}
 		if(firstRun) {
-			startingValueLeft = RobotMap.talons[2].getSelectedSensorPosition(0);
-			startingValueRight = RobotMap.talons[3].getSelectedSensorPosition(0);
 			firstRun = false;
 			distanceToDrive = getDistanceToDrive();
 			angleToTurn = getAngleToTurn();
 		}
 		System.out.println("RUNNING ENCODERCOMMAND");
 		System.out.println("DRIVING TO: " + distanceToDrive);
-		System.out.println("Left: " + Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft));
-		System.out.println("Right: " + Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight));
+		System.out.println("Left: " + Math.abs(driveBase.getLeftEncoderValue()));
+		System.out.println("Right: " + Math.abs(driveBase.getRightEncoderValue()));
 		driveBase.drive(driveSpeed, -Kp * (angleToTurn - driveBase.getAngle()) / 90, false);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(RobotMap.talons[2].getSelectedSensorPosition(0) - startingValueLeft) > Math.abs(distanceToDrive) && Math.abs(RobotMap.talons[3].getSelectedSensorPosition(0) - startingValueRight) > Math.abs(distanceToDrive);
+		return exitEarly() || Math.abs(driveBase.getLeftEncoderValue()) > Math.abs(distanceToDrive) && Math.abs(driveBase.getRightEncoderValue()) > Math.abs(distanceToDrive);
 	}
 
 	// Called once after isFinished returns true
