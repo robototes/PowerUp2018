@@ -1,9 +1,5 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.RobotMap;
-
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-
 public class EncoderCommand extends CommandBase {
 	private boolean firstRun = true;
 	
