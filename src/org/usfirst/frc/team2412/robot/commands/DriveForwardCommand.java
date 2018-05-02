@@ -34,4 +34,14 @@ public class DriveForwardCommand extends CommandBase {
 		driveBase.resetLeftEncoder();
 		driveBase.resetRightEncoder();
 	}
+	
+	// Called repeatedly when this Command is scheduled to run.
+	@Override
+	protected void execute() {
+		System.out.println("RUNNING ENCODERCOMMAND");
+		System.out.println("DRIVING TO: " + distanceToDrive);
+		System.out.println("POSITION: " + driveBase.returnPIDInput());
+		System.out.println("ERROR: " + driveBase.getPIDController().getError());
+		System.out.println("CALCULATED VALUE: " + driveBase.getPIDController().getError());
+	}
 }

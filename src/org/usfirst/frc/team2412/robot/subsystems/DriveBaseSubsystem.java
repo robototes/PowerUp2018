@@ -114,7 +114,7 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	
 	// PID-related methods.
 	@Override
-	protected double returnPIDInput() {
+	public double returnPIDInput() {
 		return getLeftEncoderValue();
 	}
 
