@@ -23,4 +23,15 @@ public class DriveForwardCommand extends CommandBase {
 		this.angleToTurn = angle;
 		this.Tp = Tp;
 	}
+	
+	// Called when the command first runs.
+	@Override
+	protected void initialize() {
+		driveBase.setInputRange(0, distanceToDrive);
+		driveBase.setSetpoint(distanceToDrive);
+		driveBase.getPIDController().enable();
+		driveBase.setTurnAngle(angleToTurn);
+		driveBase.resetLeftEncoder();
+		driveBase.resetRightEncoder();
+	}
 }
