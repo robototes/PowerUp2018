@@ -51,4 +51,11 @@ public class DriveForwardCommand extends CommandBase {
 	protected boolean isFinished() {
 		return driveBase.onTarget();
 	}
+	
+	// Called when the command ends.
+	@Override
+	protected void end() {
+		driveBase.disable();
+		System.out.println("End");
+	}
 }
