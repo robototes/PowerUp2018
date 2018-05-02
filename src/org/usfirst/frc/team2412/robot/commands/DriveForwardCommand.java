@@ -33,6 +33,7 @@ public class DriveForwardCommand extends CommandBase {
 		driveBase.setTurnAngle(angleToTurn);
 		driveBase.resetLeftEncoder();
 		driveBase.resetRightEncoder();
+		driveBase.setTp(Tp);
 	}
 	
 	// Called repeatedly when this Command is scheduled to run.

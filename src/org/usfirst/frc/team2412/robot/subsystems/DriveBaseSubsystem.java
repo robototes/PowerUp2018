@@ -124,4 +124,8 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 		double turn = Tp * angleError / 90;
 		drive(output, turn, false);
 	}
+	
+	public void setTp(double Tp) {
+		this.Tp = Tp;
+	}
 }
