@@ -45,4 +45,10 @@ public class DriveForwardCommand extends CommandBase {
 		System.out.println("ERROR: " + driveBase.getPIDController().getError());
 		System.out.println("CALCULATED VALUE: " + driveBase.getPIDController().getError());
 	}
+	
+	// Determines when the command will exit.
+	@Override
+	protected boolean isFinished() {
+		return driveBase.onTarget();
+	}
 }
