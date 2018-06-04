@@ -19,6 +19,7 @@ public class DriveForwardCommand extends CommandBase {
 	}
 	
 	public DriveForwardCommand(double driveDistance, double angle, double Tp) {
+		requires(driveBase);
 		this.distanceToDrive = driveDistance;
 		this.angleToTurn = angle;
 		this.Tp = Tp;
