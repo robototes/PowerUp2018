@@ -115,14 +115,14 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	// PID-related methods.
 	@Override
 	public double returnPIDInput() {
-		return getLeftEncoderValue();
+		return getRightEncoderValue();
 	}
 
 	@Override
 	protected void usePIDOutput(double output) {
 		double angleError = turnAngle - getAngle();
 		double turn = Tp * angleError / 90;
-		drive(output, turn, false);
+		drive(-output, turn, false);
 	}
 	
 	public void setTp(double Tp) {
