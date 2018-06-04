@@ -107,6 +107,8 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		System.out.println("Gyro angle: " + CommandBase.driveBase.getAngle()); //Print out the gyro angle no matter what for testing.
+		System.out.println("Position (left): " + CommandBase.driveBase.getLeftEncoderValue());
+		System.out.println("Position: (right): " + CommandBase.driveBase.getRightEncoderValue());
 	}
 
 	@Override
