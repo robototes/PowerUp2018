@@ -22,8 +22,8 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	private GyroBase gyro = RobotMap.gyro;
 	
 	// TalonSRXs with encoders.
-	private WPI_TalonSRX leftTalon = talons[2];
-	private WPI_TalonSRX rightTalon = talons[3];
+	private WPI_TalonSRX leftTalon = talons[4];
+	private WPI_TalonSRX rightTalon = talons[5];
 	
 	// Initial encoder values.
 	private double startingValueLeft = 0;
