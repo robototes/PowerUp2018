@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveBaseSubsystem extends PIDSubsystem {
 	// DifferentialDrive for driving.
@@ -115,7 +116,9 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	// PID-related methods.
 	@Override
 	public double returnPIDInput() {
-		return getRightEncoderValue();
+		double encoderValue = getRightEncoderValue();
+		SmartDashboard.putNumber("Encoder position", encoderValue);
+		return encoderValue;
 	}
 
 	@Override
