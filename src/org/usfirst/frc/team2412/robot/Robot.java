@@ -94,6 +94,8 @@ public class Robot extends TimedRobot {
 		System.out.println(selected);
 		
 		CommandBase.driveBase.resetAngle();
+		CommandBase.driveBase.resetLeftEncoder();
+		CommandBase.driveBase.resetRightEncoder();
 		
 		for(WPI_TalonSRX talon : RobotMap.talons) {
 			talon.enableVoltageCompensation(true);
