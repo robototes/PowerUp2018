@@ -45,7 +45,7 @@ public class DriveForwardCommand extends CommandBase {
 		System.out.println("DRIVING TO: " + distanceToDrive);
 		System.out.println("POSITION: " + driveBase.returnPIDInput());
 		System.out.println("ERROR: " + driveBase.getPIDController().getError());
-		System.out.println("CALCULATED VALUE: " + driveBase.getPIDController().getError());
+		System.out.println("CALCULATED VALUE: " + driveBase.getPIDController().get());
 	}
 	
 	// Determines when the command will exit.
