@@ -1,41 +1,41 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
-import org.usfirst.frc.team2412.robot.PlateColorChecker;
-import org.usfirst.frc.team2412.robot.commands.EncoderCommand;
-import org.usfirst.frc.team2412.robot.commands.WaitCommand;
+import org.usfirst.frc.team2412.robot.commands.DriveForwardCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
+		addSequential(new DriveForwardCommand(200000));
+		
 		//addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 4));
 		
-		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
-		if(PlateColorChecker.getStartingPosition().equals("Left")) {
-			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
-				addSequential(new AutoLeftSwitchCommand());
-			} /*else if(PlateColorChecker.isLeftScaleCorrectColor()) {
-				addSequential(new AutoLeftScaleCommand());
-			} */else {
-				addSequential(new AutoLeftNoCubeCommand());
-			}
-		} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
-			if(PlateColorChecker.isRightSwitchCorrectColor()) {
-				addSequential(new AutoRightSwitchCommand());
-			} /*else if(PlateColorChecker.isRightScaleCorrectColor()) {
-				addSequential(new AutoRightScaleCommand());
-			} */else {
-				addSequential(new AutoRightNoCubeCommand());
-			}
-		} else if(PlateColorChecker.getStartingPosition().equals("Middle")) {
-			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
-				addSequential(new AutoMiddleSwitchLeftPlateCommand());
-			} else if(PlateColorChecker.isRightSwitchCorrectColor()) {
-				addSequential(new AutoMiddleSwitchRightPlateCommand());
-			}
-		} else {
-			addSequential(new EncoderCommand(-0.5, 200000));
-		}
+//		addSequential(new WaitCommand(PlateColorChecker.getTimeToWait()));
+//		if(PlateColorChecker.getStartingPosition().equals("Left")) {
+//			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
+//				addSequential(new AutoLeftSwitchCommand());
+//			} /*else if(PlateColorChecker.isLeftScaleCorrectColor()) {
+//				addSequential(new AutoLeftScaleCommand());
+//			} */else {
+//				addSequential(new AutoLeftNoCubeCommand());
+//			}
+//		} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
+//			if(PlateColorChecker.isRightSwitchCorrectColor()) {
+//				addSequential(new AutoRightSwitchCommand());
+//			} /*else if(PlateColorChecker.isRightScaleCorrectColor()) {
+//				addSequential(new AutoRightScaleCommand());
+//			} */else {
+//				addSequential(new AutoRightNoCubeCommand());
+//			}
+//		} else if(PlateColorChecker.getStartingPosition().equals("Middle")) {
+//			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
+//				addSequential(new AutoMiddleSwitchLeftPlateCommand());
+//			} else if(PlateColorChecker.isRightSwitchCorrectColor()) {
+//				addSequential(new AutoMiddleSwitchRightPlateCommand());
+//			}
+//		} else {
+//			addSequential(new EncoderCommand(-0.5, 200000));
+//		}
 		/*
 		
 //		addSequential(new IntakeDown());
