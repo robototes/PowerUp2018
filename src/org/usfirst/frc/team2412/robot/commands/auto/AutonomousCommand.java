@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new DriveForwardCommand(200000));
+		addSequential(new DriveForwardCommand(100000));
 		
 		//addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 4));
 		
