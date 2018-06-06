@@ -37,7 +37,7 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	private double Tp = 2;
 	
 	public DriveBaseSubsystem() {
-		super(0.00001, 0.0, 0.0); // Default PID values.
+		super(0.00004, 0.0000000, 0.0001); // Default PID values.
 		leftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		leftTalon.setSelectedSensorPosition(0, 0, 0);
 		
