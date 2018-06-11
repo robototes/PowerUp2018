@@ -49,11 +49,12 @@ public class TurnCommand extends CommandBase {
 	
 	@Override
 	protected boolean isFinished() {
-		return exitEarly() || Math.abs(getError()) < 1;
+		return exitEarly() || Math.abs(getError()) < 5;
 	}
 	
 	private boolean exitEarly() {
-		return PlateColorChecker.useDefault();
+//		return PlateColorChecker.useDefault();
+		return false;
 	}
 	
 	protected void end() {
