@@ -30,7 +30,7 @@ public class DriveForwardCommand extends CommandBase {
 	protected void initialize() {
 		driveBase.setInputRange(0, distanceToDrive);
 		driveBase.setSetpoint(distanceToDrive);
-		driveBase.setPercentTolerance(1);
+		driveBase.setAbsoluteTolerance(2500);
 		driveBase.getPIDController().enable();
 		driveBase.setTurnAngle(angleToTurn);
 		driveBase.resetLeftEncoder();
