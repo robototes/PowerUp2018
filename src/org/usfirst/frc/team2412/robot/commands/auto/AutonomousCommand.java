@@ -1,16 +1,14 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
 import org.usfirst.frc.team2412.robot.commands.DriveForwardCommand;
-import org.usfirst.frc.team2412.robot.commands.TurnCommand;
-import org.usfirst.frc.team2412.robot.commands.WaitCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new DriveForwardCommand(100000));
-		addSequential(new WaitCommand(1));
-		addSequential(new TurnCommand(90, 1.0, 0.01));
+		addSequential(new DriveForwardCommand(180000, 0, 2, 0.00002, 0.00000001, 0.0000001));
+//		addSequential(new WaitCommand(1));
+//		addSequential(new TurnCommand(90, 1.0, 0.01));
 		
 		//addSequential(new FollowTrajectoryCommand("Drive Forward 10 Feet", 4));
 		
