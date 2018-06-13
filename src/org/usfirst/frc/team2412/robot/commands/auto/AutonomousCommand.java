@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-		addSequential(new DriveForwardCommand(180000, 0, 2, 0.00002, 0.00000001, 0.0000001));
+		addSequential(new DriveForwardCommand(180000, 0, 2, 0.0000045, 0.000000083, 0.0000001));
 //		addSequential(new WaitCommand(1));
 //		addSequential(new TurnCommand(90, 1.0, 0.01));
 		
