@@ -124,7 +124,7 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	@Override
 	protected void usePIDOutput(double output) {
 		double angleError = turnAngle - getAngle();
-		double turn = Tp * angleError / 90;
+		double turn = -Tp * angleError / 90;
 		drive(-output, turn, false);
 	}
 	
