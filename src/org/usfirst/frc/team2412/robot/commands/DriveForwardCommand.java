@@ -51,11 +51,12 @@ public class DriveForwardCommand extends CommandBase {
 		if(overridePIDConstants) {
 			driveBase.getPIDController().setPID(p, i, d);
 		}
+		driveBase.resetLeftEncoder();
+		driveBase.resetRightEncoder();
 		
 		driveBase.getPIDController().enable();
 		driveBase.setTurnAngle(angleToTurn);
-		driveBase.resetLeftEncoder();
-		driveBase.resetRightEncoder();
+
 		driveBase.setTp(Tp);
 	}
 	
@@ -66,6 +67,7 @@ public class DriveForwardCommand extends CommandBase {
 		System.out.println("DRIVING TO: " + distanceToDrive);
 		System.out.println("POSITION: " + driveBase.returnPIDInput());
 		System.out.println("ERROR: " + driveBase.getPIDController().getError());
+		System.out.println("P: " + driveBase.getPIDController().getP());
 		System.out.println("CALCULATED VALUE: " + driveBase.getPIDController().get());
 	}
 	
