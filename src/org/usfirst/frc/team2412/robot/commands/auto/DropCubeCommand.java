@@ -41,7 +41,8 @@ public class DropCubeCommand extends CommandBase {
 	}
 	
 	private boolean exitEarly() {
-		return PlateColorChecker.useDefault();
+		return false;
+//		return PlateColorChecker.useDefault();
 	}
 	
 	private double getTimeSeconds() {

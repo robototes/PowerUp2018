@@ -1,21 +1,23 @@
 package org.usfirst.frc.team2412.robot.commands.auto;
 
-import org.usfirst.frc.team2412.robot.commands.DriveForwardCommand;
-import org.usfirst.frc.team2412.robot.commands.TurnCommand;
-import org.usfirst.frc.team2412.robot.commands.WaitCommand;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand() {
-//		addSequential(new DriveForwardCommand(180000, 0, 2, 0.0000045, 0.000000083, 0.0000001));
+		addSequential(new AutoMiddleSwitchRightPlateCommand());
 		
+		// If the above didn't work, try this:
+//		addSequential(new DriveForwardCommand(180000, 0, 2));
+		
+		/**
 		addSequential(new DriveForwardCommand(85000, 0, 10, 0.0000045, 0.000000083, 0.0000001));
 		addSequential(new TurnCommand(-90, 1.0, 0.01));
 		addSequential(new DriveForwardCommand(145000, -90, 10, 0.0000045, 0.000000083, 0.0000001));
 		addSequential(new WaitCommand(1));
 		addSequential(new TurnCommand(0, 1.0, 0.01));
 		addSequential(new DriveForwardCommand(70000, 0, 2, 0.00001, 0.00000005, 0.0000001));
+		
+		*/
 		
 //		addSequential(new WaitCommand(1));
 //		addSequential(new TurnCommand(90, 1.0, 0.01));
