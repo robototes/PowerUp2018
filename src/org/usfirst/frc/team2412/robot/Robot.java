@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -92,6 +93,7 @@ public class Robot extends TimedRobot {
 		
 		String selected = table.getEntry("startingPosition").getString("unknown");
 		System.out.println(selected);
+		System.out.println(DriverStation.getInstance().getGameSpecificMessage());
 		
 		CommandBase.driveBase.resetAngle();
 		CommandBase.driveBase.resetLeftEncoder();
