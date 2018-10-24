@@ -28,7 +28,7 @@ public class AutonomousCommand extends CommandGroup {
 			} /*else if(PlateColorChecker.isLeftScaleCorrectColor()) {
 				addSequential(new AutoLeftScaleCommand());
 			} */else {
-				addSequential(new AutoLeftNoCubeCommand());
+				addSequential(new AutoNoCubeCommand());
 			}
 		} else if(PlateColorChecker.getStartingPosition().equals("Right")) {
 			if(PlateColorChecker.isRightSwitchCorrectColor()) {
@@ -36,7 +36,7 @@ public class AutonomousCommand extends CommandGroup {
 			} /*else if(PlateColorChecker.isRightScaleCorrectColor()) {
 				addSequential(new AutoRightScaleCommand());
 			} */else {
-				addSequential(new AutoRightNoCubeCommand());
+				addSequential(new AutoNoCubeCommand());
 			}
 		} else if(PlateColorChecker.getStartingPosition().equals("Middle")) {
 			if(PlateColorChecker.isLeftSwitchCorrectColor()) {
@@ -45,7 +45,7 @@ public class AutonomousCommand extends CommandGroup {
 				addSequential(new AutoMiddleSwitchRightPlateCommand());
 			}
 		} else {
-			addSequential(new DriveForwardCommand(170000, 0, 2, 0.0000045, 0.000000083, 0.0000001));
+			addSequential(new AutoNoCubeCommand());
 		}
 		/*
 		
