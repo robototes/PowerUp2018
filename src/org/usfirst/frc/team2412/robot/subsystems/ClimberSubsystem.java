@@ -16,12 +16,12 @@ private WPI_TalonSRX[] climbermotors = RobotMap.climberstalons;
 		setDefaultCommand(new ClimbSteadyCommand());
 	}
 public void climbUp() {
-	climbermotors[0].set(1);
-    climbermotors[1].set(1);
+	climbermotors[0].set(-1);
+    climbermotors[1].set(-1);
 }
 public void climbDown() {
-	climbermotors[0].set(-1);
-	climbermotors[1].set(-1);
+	climbermotors[0].set(1);
+	climbermotors[1].set(1);
 }
 public void stopClimb() {
 	climbermotors[0].set(0);
