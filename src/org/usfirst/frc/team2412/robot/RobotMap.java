@@ -118,4 +118,7 @@ public class RobotMap {
 	
 	/** DoubleSolenoid for shifting gearboxes */
 	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
+	
+	/** Experimental ultrasonic sensor instance */
+	public static MaxBotixSonar sonar = new MaxBotixSonar(3);
 }
