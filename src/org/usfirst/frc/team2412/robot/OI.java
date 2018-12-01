@@ -14,6 +14,7 @@ import org.usfirst.frc.team2412.robot.commands.IntakeUp;
 import org.usfirst.frc.team2412.robot.commands.LiftDownCommand;
 import org.usfirst.frc.team2412.robot.commands.LiftUpCommand;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
+import org.usfirst.frc.team2412.robot.commands.EnableBabyModeCommand;
 import org.usfirst.frc.team2412.robot.commands.intakeClose;
 import org.usfirst.frc.team2412.robot.commands.intakeIn;
 import org.usfirst.frc.team2412.robot.commands.intakeOpen;
@@ -57,6 +58,7 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public OI() {
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
+		babyButton.whileHeld(new EnableBabyModeCommand());
 		climbUpButton.whileHeld(new ClimbUpCommand());
 		climbDownButton.whileHeld(new ClimbDownCommand());
 		liftupbutton.whileHeld(new LiftUpCommand()); 
@@ -73,7 +75,8 @@ public class OI {
 	public Joystick codriver = new Joystick(1);
 	
 	public Button shiftHighButton = new JoystickButton(stick, 1);
-		
+	public Button babyButton = new JoystickButton(stick, 2);
+	
 	public Button climbUpButton = new JoystickButton(codriver, 9);
 	public Button climbDownButton = new JoystickButton(codriver, 10);
 	

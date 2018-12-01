@@ -36,6 +36,13 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	// P for turning.
 	private double Tp = 2;
 	
+	// Different speeds for driving and turning.
+	private final double DRIVENORMALSPEED = 1.0;
+	private final double TURNNORMALSPEED = 0.8;
+	
+	private final double DRIVEBABYSPEED = 0.5;
+	private final double TURNBABYSPEED = 0.5;
+	
 	public DriveBaseSubsystem() {
 		super(0.00002, 0.00000002, 0.0000001); // Default PID values.
 		leftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
@@ -52,11 +59,17 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	
 	// Driving-related methods.
 	public void drive(Joystick stick) {
-		drive(stick.getY(), -stick.getTwist()*0.8, true);
+		drive(stick.getY(), -stick.getTwist()*0.8, false);
 	}
 	
 	public void drive(double y, double x, boolean squaredInputs) {
-		robotDrive.arcadeDrive(y, x, squaredInputs);
+		if(RobotMap.driveNormally) {
+			robotDrive.arcadeDrive(DRIVENORMALSPEED * y, TURNNORMALSPEED * x, squaredInputs);
+			System.out.println("Driving normally...");
+		} else {
+			robotDrive.arcadeDrive(DRIVEBABYSPEED * y, TURNBABYSPEED * x, squaredInputs);
+			System.out.println("Driving slowly...");
+		}
 	}
 	
 	public void setSideSpeeds(double leftSpeed, double rightSpeed) {

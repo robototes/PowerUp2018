@@ -33,6 +33,11 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	/** Driving mode - true for normal operation, false for baby mode.
+	 *  Baby mode is where the robot drives slower and shifters and climb are disabled so little kids can drive Griffin.
+	 */
+	public static boolean driveNormally = false;
+	
 	/** WPI_TalonSRX IDs */
 	public static int[] motorIDs = new int[] {
 		//    FRONT   //
