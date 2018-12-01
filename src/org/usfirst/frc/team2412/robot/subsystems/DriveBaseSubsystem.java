@@ -52,15 +52,11 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	
 	// Driving-related methods.
 	public void drive(Joystick stick) {
-		robotDrive.arcadeDrive(stick.getY(), -stick.getTwist()*0.8, true);
+		drive(stick.getY(), -stick.getTwist()*0.8, true);
 	}
 	
 	public void drive(double y, double x, boolean squaredInputs) {
-		if(squaredInputs) {
-			robotDrive.arcadeDrive(y, Math.pow(x, 1.0));
-		} else {
-			robotDrive.arcadeDrive(y, x);
-		}
+		robotDrive.arcadeDrive(y, x, squaredInputs);
 	}
 	
 	public void setSideSpeeds(double leftSpeed, double rightSpeed) {
