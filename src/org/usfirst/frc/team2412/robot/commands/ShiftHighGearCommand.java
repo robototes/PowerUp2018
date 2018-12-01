@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 public class ShiftHighGearCommand extends CommandBase {
 	
 	public ShiftHighGearCommand() {
@@ -8,7 +10,9 @@ public class ShiftHighGearCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		driveShifters.shiftHighGear();
+		if(RobotMap.driveNormally) {
+			driveShifters.shiftHighGear();
+		}
 	}
 	
 	@Override
