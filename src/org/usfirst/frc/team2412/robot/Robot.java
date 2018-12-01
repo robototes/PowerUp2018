@@ -136,6 +136,8 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		System.out.println("Position (left): " + CommandBase.driveBase.getLeftEncoderValue());
 		System.out.println("Position: (right): " + CommandBase.driveBase.getRightEncoderValue());
+		System.out.println("Voltage: " + RobotMap.sonar.getRawDistance());
+		System.out.println("Inches: " + RobotMap.sonar.getInches());
 	}
 
 	/**

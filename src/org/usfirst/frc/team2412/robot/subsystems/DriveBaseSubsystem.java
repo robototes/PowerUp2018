@@ -40,8 +40,8 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	private final double DRIVENORMALSPEED = 0.8;
 	private final double TURNNORMALSPEED = 0.6;
 	
-	private final double DRIVEBABYSPEED = 0.3;
-	private final double TURNBABYSPEED = 0.3;
+	private final double DRIVEBABYSPEED = 0.4;
+	private final double TURNBABYSPEED = 0.4;
 	
 	public DriveBaseSubsystem() {
 		super(0.00002, 0.00000002, 0.0000001); // Default PID values.
